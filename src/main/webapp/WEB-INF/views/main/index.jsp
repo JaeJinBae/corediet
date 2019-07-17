@@ -1010,6 +1010,72 @@
 	font-family: sans-serif;
 }
 
+
+.section10{
+	background: #f5f6f8;
+	padding: 100px 0;
+}
+.s10_container1{
+	margin-bottom: 40px;
+	max-width: 750px;
+	text-align: center;
+	
+}
+.s10_textWrap{
+	margin-bottom: 70px;
+	text-align: center;
+}
+.s10_textWrap > h3{
+	margin-bottom: 30px;
+	line-height: 1;
+	font-size: 30px;
+	font-family: sans-serif;
+}
+.s10_textWrap > p{
+	margin-bottom: 1rem;
+	font-size: 16px;
+	font-family: sans-serif;
+	color: #979aa7;
+}
+.s10_textWrap > a{
+	font-size: 15px;
+	font-family: sans-serif;
+	font-weight: bold;
+}
+
+.section11{
+	background: #fff;
+	padding: 100px 0;
+}
+.s11_container1{
+	margin-bottom: 40px;
+	max-width: 750px;
+	text-align: center;
+	
+}
+.s11_textWrap{
+	margin-bottom: 70px;
+	text-align: center;
+}
+.s11_textWrap > h3{
+	margin-bottom: 30px;
+	line-height: 1;
+	font-size: 30px;
+	font-family: sans-serif;
+}
+.s11_textWrap > p{
+	margin-bottom: 1rem;
+	font-size: 16px;
+	font-family: sans-serif;
+	color: #979aa7;
+}
+.s11_container2{
+	width: 100%;
+	text-align: center;
+}
+.s11_container2 > .fb-page{
+	margin: 0 auto;
+}
 </style>
 <script>
 function get_blogInfo(){
@@ -1830,6 +1896,31 @@ $(function(){
 					</div><!-- s09_sliderWrap end -->
 				</div><!-- s09_container2 end -->
 			</div><!-- section09 end -->
+			<div class="section10 section">
+				<div class="s10_container1 container">
+					<div class="s10_textWrap">
+						<h3>SNS</h3>
+						<p>CoreDiet's SNS.</p>
+						<a href="https://www.instagram.com/explore/tags/%EB%94%A5%EB%A1%A4%EB%9F%AC/" target="_blank" tabindex="0">Instagram에서 코어다이어트 딥롤러  바로가기</a>
+					</div>
+				</div><!-- s10_container1 end -->
+			</div><!-- section10 end -->
+			<div class="section11 section">
+				<div class="s11_container1 container">
+					<div class="s11_textWrap">
+						<h3>FACEBOOK</h3>
+						<p>Core Diet Facebook</p>
+					</div>
+				</div><!-- s11_container1 end -->
+				<div class="s11_container2 container">
+					<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2"></script>
+					<div class="fb-page" data-href="https://www.facebook.com/corediet/" data-tabs="timeline" data-width="300" data-height="550" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+						<blockquote cite="https://www.facebook.com/corediet/" class="fb-xfbml-parse-ignore">
+							<a href="https://www.facebook.com/corediet/">코어다이어트 딥롤러</a>
+						</blockquote>
+					</div>
+				</div>
+			</div><!-- section11 end -->
 		</div><!-- sectionWrap end -->
 	</div><!-- allWrap end -->
 </body>
