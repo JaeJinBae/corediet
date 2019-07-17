@@ -1076,6 +1076,32 @@
 .s11_container2 > .fb-page{
 	margin: 0 auto;
 }
+.section12{
+	background: #f5f6f8;
+	padding: 100px 0;
+}
+.s12_container1{
+	margin-bottom: 40px;
+	max-width: 750px;
+	text-align: center;
+	
+}
+.s12_textWrap{
+	margin-bottom: 70px;
+	text-align: center;
+}
+.s12_textWrap > h3{
+	margin-bottom: 30px;
+	line-height: 1;
+	font-size: 30px;
+	font-family: sans-serif;
+}
+.s12_textWrap > p{
+	margin-bottom: 1rem;
+	font-size: 16px;
+	font-family: sans-serif;
+	color: #979aa7;
+}
 </style>
 <script>
 function get_blogInfo(){
@@ -1142,6 +1168,20 @@ function draw_youtubeInfo(){
 }
 
 $(function(){
+	$(window).scroll(function(){ 
+	    var scroll = $(window).scrollTop(); 
+	    if(scroll>1){ 
+	    	$(".header").css("background", "rgba(255, 255, 255, 0.9)");
+	    	$(".headerWrap > .logoWrap > a > img").prop("src", "${pageContext.request.contextPath}/resources/images/logo2.png");
+	    	$(".headerWrap > .menuWrap > ul > li > a").css("color", "rgba(0, 0, 0, 0.8)")
+	    } 
+	    else{ 
+	    	$(".header").css("background","rgba(0, 0, 0, 0.9)");
+	    	$(".headerWrap > .logoWrap > a > img").prop("src", "${pageContext.request.contextPath}/resources/images/logo.png");
+	    	$(".headerWrap > .menuWrap > ul > li > a").css("color", "rgba(255, 255, 255, 0.8)")
+	    }
+	  })
+	
 	$(".s03_container2 > ul > li").click(function(){
 		$(".s03_container2 > ul > li").css("border", "none");
 		$(this).css("border-bottom", "5px solid #3398dc");
@@ -1188,12 +1228,12 @@ $(function(){
 			<jsp:include page="../include/header.jsp"></jsp:include>
 		</div>
 		<div class="sectionWrap">
-			<div class="section01 section">
+			<div class="section01 section" id="section01">
 				<div class="s01_container container">
 					<p>인체의 건강을<br>아름답게 가꾸는<br>브랜드</p>
 				</div>
 			</div><!-- section01 end -->
-			<div class="section02 section">
+			<div class="section02 section" id="section02">
 				<div class="s02_container1 container">
 					<h3>ABOUT</h3>
 					<p>About CoreDiet brands.</p>
@@ -1215,7 +1255,7 @@ $(function(){
 					<p class="s02_p4">코어다이어트 딥롤러는 15년 이상의 도수치료 임상 경력을 가진 물리치료사가 가정에서 또는 <br class="mobile_blind">운동센터나 물리치료실에서 효과적인 폼롤러 운동을 통해 척추와 근막을 관리할 수 있도록 개발된 제품입니다.</p>
 				</div><!-- s02_container3 end -->
 			</div><!-- section02 end -->
-			<div class="section03 section">
+			<div class="section03 section" id="section03">
 				<div class="s03_container1 container">
 					<h3>HISTORY</h3>
 					<p>CoreDiet brands history.</p>
@@ -1713,7 +1753,7 @@ $(function(){
 					</div><!-- s03_tab2 end -->
 				</div><!-- s03_container3 end -->
 			</div><!-- section03 end -->
-			<div class="section04 section">
+			<div class="section04 section" id="section04">
 				<div class="s04_container1 container">
 					<h3>BRANDS</h3>
 					<div class="s04_videoWrap">
@@ -1721,7 +1761,7 @@ $(function(){
 					</div>
 				</div>
 			</div><!-- section04 end -->
-			<div class="section05 section">
+			<div class="section05 section" id="section05">
 				<div class="s05_container1 container">
 					<div class="s05_con_top">
 						<div class="s05_textWrap">
@@ -1743,7 +1783,7 @@ $(function(){
 					</div>
 				</div><!-- s05_container1 end -->
 			</div><!-- section05 end -->
-			<div class="section06 section">
+			<div class="section06 section" id="section06">
 				<div class="s06_container1 container">
 					<div class="s06_textWrap">
 						<h3>HOW TO USE</h3>
@@ -1829,7 +1869,7 @@ $(function(){
 					</div><!-- s06_videoAllWrap end -->
 				</div><!-- s06_container1 end -->
 			</div><!-- section06 end -->
-			<div class="section07 section">
+			<div class="section07 section" id="section07">
 				<div class="s07_container1">
 					<div class="s07_textWrap">
 						<h3>CONTACT</h3>
@@ -1866,7 +1906,7 @@ $(function(){
 					</div><!-- mapWrap end -->
 				</div><!-- s07_container2 end -->
 			</div><!-- section07 end -->
-			<div class="section08 section">
+			<div class="section08 section" id="section08">
 				<div class="s08_container1 container">
 					<div class="s08_textWrap">
 						<h3>BLOG</h3>
@@ -1880,7 +1920,7 @@ $(function(){
 					
 				</div><!-- sliderWrap end -->
 			</div><!-- section08 end -->
-			<div class="section09 section">
+			<div class="section09 section" id="section09">
 				<div class="s09_container1 container">
 					<div class="s09_textWrap">
 						<h3>VIDEO CLIP</h3>
@@ -1896,7 +1936,7 @@ $(function(){
 					</div><!-- s09_sliderWrap end -->
 				</div><!-- s09_container2 end -->
 			</div><!-- section09 end -->
-			<div class="section10 section">
+			<div class="section10 section" id="section10">
 				<div class="s10_container1 container">
 					<div class="s10_textWrap">
 						<h3>SNS</h3>
@@ -1905,7 +1945,7 @@ $(function(){
 					</div>
 				</div><!-- s10_container1 end -->
 			</div><!-- section10 end -->
-			<div class="section11 section">
+			<div class="section11 section" id="section11">
 				<div class="s11_container1 container">
 					<div class="s11_textWrap">
 						<h3>FACEBOOK</h3>
@@ -1919,8 +1959,16 @@ $(function(){
 							<a href="https://www.facebook.com/corediet/">코어다이어트 딥롤러</a>
 						</blockquote>
 					</div>
-				</div>
+				</div><!-- s11_container2 end -->
 			</div><!-- section11 end -->
+			<div class="section12 section" id="section12">
+				<div class="s12_container1 container">
+					<div class="s12_textWrap">
+						<h3>LIRBRARY</h3>
+						<p>CoreDiet's Library</p>
+					</div>
+				</div>
+			</div>
 		</div><!-- sectionWrap end -->
 	</div><!-- allWrap end -->
 </body>

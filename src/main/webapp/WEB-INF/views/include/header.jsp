@@ -47,12 +47,12 @@ $(function(){
 	</div>
 	<div class="menuWrap">
 		<ul>
-			<li><a href="">ABOUT</a></li>
-			<li><a href="">HISTORY</a></li>
-			<li><a href="">BRANDS</a></li>
-			<li><a href="">REVIEW</a></li>
-			<li><a href="">CONTACT</a></li>
-			<li><a href="">LIBRARY</a></li>
+			<li><a href="#section02">ABOUT</a></li>
+			<li><a href="#section03">HISTORY</a></li>
+			<li><a href="#section04">BRANDS</a></li>
+			<li><a href="#section10">REVIEW</a></li>
+			<li><a href="#section07">CONTACT</a></li>
+			<li><a href="#section12">LIBRARY</a></li>
 			<li><a href="">DEEP ROLLER</a></li>
 		</ul>
 	</div><!-- menuWrap end -->
