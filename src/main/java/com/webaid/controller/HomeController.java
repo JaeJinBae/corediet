@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -112,6 +113,35 @@ public class HomeController {
             System.out.println(e);
         }
 		return response;
+	}
+	
+	@RequestMapping(value="/noticeGet", method=RequestMethod.POST)
+	public ResponseEntity<Map<String, Object>> getNotice(@RequestBody Map<String, String> info) throws Exception{
+		ResponseEntity<Map<String, Object>> entity = null;
+		SearchCriteria cri = new SearchCriteria();
+		if(info.size() != 0){
+			cri.setPage(Integer.parseInt(info.get("page")));
+			cri.setPerPageNum(Integer.parseInt(info.get("perPageNum")));
+			cri.setSearchType(info.get("searchType"));
+			cri.setKeyword(info.get("keyword"));
+		}
+		
+		
+		HashMap<String, Object> map=new HashMap<>();
+		
+		List<NoticeVO> list = nService.listSearch(cri);
+
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.makeSearch(cri.getPage());
+		pageMaker.setTotalCount(nService.listSearchCount(cri));
+		
+		map.put("list", list);
+		map.put("pageMaker", pageMaker);
+		
+		entity = new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
+		return entity;
 	}
 	
 	@RequestMapping(value = "/noticeRead", method = RequestMethod.GET)

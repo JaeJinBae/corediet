@@ -11,6 +11,9 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/slick/slick-theme.css"/>
+<!-- <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/slick/slick.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0150774a1cc2645b7f79f50845ad5e82"></script>
@@ -1181,6 +1184,27 @@
 	color: #333;
 	text-decoration: underline;
 }
+.noticeBtnWrap{
+	width: 100%;
+	text-align: right;
+	margin: 20px 0;
+}
+.noticeBtnWrap > p{
+	display: inline-block;
+	background: #253dbe;
+	line-height: 35px;
+	height: 35px;
+	text-align: center;
+	color: #fff;
+	border-radius: 3px;
+	padding: 0 10px;
+	cursor: pointer;
+	font-size: 14px;
+	letter-spacing: 1px;
+}
+.noticeBtnWrap > p:hover{
+	font-weight: bold;
+}
 
 .page{
 	margin: 15px auto;
@@ -1199,7 +1223,7 @@
 	background: #fafafa;
 }
 .active1{
-	background: #4a7899 !important;
+	background: #3398dc !important;
 }
 .active2{
 	font-weight: bold;
@@ -1212,6 +1236,68 @@
 	font-size:1.1em;
 	line-height: 30px;
 }
+.footer{
+	width: 100%;
+}
+.footerContentWrap{
+	width: 100%;
+	padding: 40px 0;
+	text-align: center;
+}
+.footerContentWrap > a{
+	display: inline-block;
+	margin-bottom: 30px;
+}
+.footerContentWrap > p{
+	margin-bottom: 30px;
+	font-size: 16px;
+	color: #999999;
+}
+.footerContentWrap > ul{
+	
+}
+.footerContentWrap > ul > li{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	vertical-align: middle;
+	margin: 0 5px;
+}
+.footerContentWrap > ul > li > a{
+	display:inline-block;
+	width: 100%;
+	height: 100%;
+	font-size: 18px;
+	color: #3398dc;
+	vertical-align: middle;
+	-webkit-transition-property: all;
+	-o-transition-property: all;
+	transition-property: all;
+	-webkit-transition-duration: .2s;
+	-o-transition-duration: .2s;
+	transition-duration: .2s;
+	-webkit-transition-timing-function: ease-in;
+	-o-transition-timing-function: ease-in;
+	transition-timing-function: ease-in;
+}
+.footerContentWrap > ul > li > a:hover{
+	color: #fff;
+	background: #3398dc;
+	-webkit-transition-property: all;
+	-o-transition-property: all;
+	transition-property: all;
+	-webkit-transition-duration: .2s;
+	-o-transition-duration: .2s;
+	transition-duration: .2s;
+	-webkit-transition-timing-function: ease-in;
+	-o-transition-timing-function: ease-in;
+	transition-timing-function: ease-in; 
+}
+.footerContentWrap > ul > li > a > i{
+	padding-top: 8px;
+}
+
 </style>
 <script>
 function get_blogInfo(){
@@ -1253,9 +1339,7 @@ function get_youtubeInfo(){
 		dataType:encodeURI("json"),
 		async:false,
 		success:function(result){
-			console.log(result.items);
 			dt = result.items;
-			
 		}
 	})
 	return dt;
@@ -1275,6 +1359,62 @@ function draw_youtubeInfo(){
 	});
 	$(".s09_slides").html(str);
 	
+}
+
+function get_notice(info){
+	var dt;
+	$.ajax({
+		url:"${pageContext.request.contextPath}/noticeGet",
+		type: "post",
+		data:JSON.stringify(info),
+		async:false,
+		contentType : "application/json; charset=UTF-8",
+		dataType:"json",
+		success:function(json){			
+			dt = json;
+		},
+		error:function(request,status,error){
+			console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		}
+	});
+	return dt;
+}
+
+function draw_notice(info){
+	var json = get_notice(info);
+	var str = "";
+	var page = 0;
+	str = "<tr><th>순번</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회</th></tr>";
+	if($(json.list).length == 0){
+		str += "<tr><td colspan='5'>등록된 게시물이 없습니다.</td></tr>";
+	}else{
+		page = json.pageMaker.cri.page;
+		$(json.list).each(function(){
+			str += "<tr><td>"+this.no+"</td><td><a href='${pageContext.request.contextPath}/noticeRead?page="+page+"&perPageNum=10&searchType&keyword&no="+this.no+"'>"+this.title+"</a></td>"
+				+ "<td>"+this.writer+"</td><td>"+this.regdate+"</td><td>"+this.cnt+"</td></tr>";
+		})
+	}
+	$(".s12_container2 > .tblWrap > table").html(str);
+	
+	//paging처리
+	str = "<ul>";
+	if(json.pageMaker.prev){
+		str += "<li><a href='page="+(json.pageMaker.startPage-1)+"&perPageNum=10&searchType="+json.pageMaker.cri.searchType+"&keyword1="+json.pageMaker.cri.keyword1+"&keyword2="+json.pageMaker.cri.keyword2+"'>&laquo;</a></li>";
+	}
+	for(var i=json.pageMaker.startPage; i<=json.pageMaker.endPage; i++){
+		
+		if(json.pageMaker.cri.page == i){
+			str += "<li class='active1'><a class='active2' href='page="+i+"&perPageNum=10&searchType="+json.pageMaker.cri.searchType+"&keyword="+json.pageMaker.cri.keyword+"'>"+i+"</a></li>";
+		}else{
+			str += "<li><a href='page="+i+"&perPageNum=10&searchType="+json.pageMaker.cri.searchType+"&keyword="+json.pageMaker.cri.keyword+"'>"+i+"</a></li>"
+		}
+	}
+	if(json.pageMaker.next){
+		str += "<li><a href='page="+(json.pageMaker.endPage+1)+"&perPageNum=10&searchType="+json.pageMaker.cri.searchType+"&keyword="+json.pageMaker.cri.keyword+"'>&raquo;</a></li>";
+	}
+	str += "</ul>";
+	
+	$(".s12_container2 > .page").html(str);
 }
 
 $(function(){
@@ -1324,11 +1464,43 @@ $(function(){
 	draw_youtubeInfo();
 	
 	$('.s09_slides').slick({
-		  dots: false,
-		  slidesToShow: 3,
-		  slidesToScroll: 1,
-		  centerMode: true,
-		});
+	  dots: false,
+	  slidesToShow: 3,
+	  slidesToScroll: 1,
+	  centerMode: true,
+	});
+	
+	var info_ = {page:1, perPageNum:10, searchType:"", keyword:""}
+	
+	//Lirbrary 게시판생성
+	draw_notice(info_);
+	
+	//Lirbrary 게시판 페이지 클릭
+	$(document).on("click", ".page > ul > li > a", function(e){
+		e.preventDefault();
+		var page="";
+		var perPageNum="";
+		var searchType="";
+		var keyword="";
+		
+		var href_txt = $(this).attr("href");
+		var splitList = href_txt.split("&");
+		
+		for(var i=0; i<splitList.length; i++){
+			if(i==0){
+				page=splitList[i].split("=")[1];
+			}else if(i==1){
+				perPageNum=splitList[i].split("=")[1];
+			}else if(i==2){
+				searchType = splitList[i].split("=")[1];
+			}else if(i==3){
+				keyword = splitList[i].split("=")[1];
+			}
+		}
+		
+		var info = {page:page, perPageNum:perPageNum, searchType:searchType, keyword:keyword};
+		draw_notice(info);
+	});
 }); 
 </script>
 </head>
@@ -2081,54 +2253,28 @@ $(function(){
 				<div class="s12_container2 container">
 					<div class="tblWrap">
 						<table>
-							<tr>
-								<th>순번</th>
-								<th>제목</th>
-								<th>작성자</th>
-								<th>작성일</th>
-								<th>조회</th>
-							</tr>
-							<c:choose>
-							    <c:when test="${fn:length(list) == 0}">
-						        	<tr>
-						        		<td colspan="5" style=" text-align: center;">등록된 게시물이 없습니다.</td>
-						        	</tr>
-							    </c:when>
-							    
-							    <c:otherwise>
-							    	<c:set var="num" value="${pageMaker.totalCount - ((pageMaker.cri.page -1) *10)}"></c:set>
-							        <c:forEach var="item" items="${list}">
-										<tr>
-											<td>${num}</td>
-											<td><a href="${pageContext.request.contextPath}/noticeRead${pageMaker.makeSearch(pageMaker.cri.page)}&no=${item.no}">${item.title}</a></td>
-											<td>${item.writer}</td>
-											<td>${item.regdate}</td>
-											<td>${item.cnt}</td>
-										</tr>
-										<c:set var="num" value="${num-1}"></c:set>	
-									</c:forEach>
-							    </c:otherwise> 
-							</c:choose>
+							
 						</table>
 					</div><!-- tblWrap end -->
+					<div class="noticeBtnWrap">
+						<p>글쓰기</p>
+					</div>
 					<div class="page">
-						<ul>
-							<c:if test="${pageMaker.prev}">
-								<li><a href="${pageMaker.makeSearch(pageMaker.startPage-1) }">&laquo;</a></li>
-							</c:if>
-							
-							<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-								<li ${pageMaker.cri.page == idx? 'class=active1':''}><a href="${pageMaker.makeSearch(idx)}" ${pageMaker.cri.page == idx? 'class=active2':''}>${idx}</a></li>
-							</c:forEach>
-							
-							<c:if test="${pageMaker.next}">
-								<li><a href="${pageMaker.makeSearch(pageMaker.endPage+1)}">&raquo;</a></li>
-							</c:if>
-						</ul>
+						
 					</div>
 				</div><!-- s12_container2 end -->
 			</div><!-- section12 end -->
 		</div><!-- sectionWrap end -->
+		<div class="footer">
+			<div class="footerContentWrap">
+				<a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/resources/images/logo2.png"></a>
+				<p>@ CoreDiet</p>
+				<ul>
+					<li><a href="https://blog.naver.com/corediet_official"><i class="fab fa-blogger-b"></i></a></li>
+					<li><a href="https://www.facebook.com/corediet"><i class="fab fa-facebook-f"></i></a></li>
+				</ul>
+			</div>
+		</div>
 	</div><!-- allWrap end -->
 </body>
 </html>
