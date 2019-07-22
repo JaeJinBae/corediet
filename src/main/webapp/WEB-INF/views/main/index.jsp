@@ -385,6 +385,15 @@
 	bottom: 0;
 	left: 0;
 	background-color: rgba(22, 26, 39, 0.7);
+	-webkit-transition-property: background-color;
+	-o-transition-property: background-color;
+	transition-property: background-color;
+	-webkit-transition-duration: .2s;
+	-o-transition-duration: .2s;
+	transition-duration: .2s;
+	-webkit-transition-timing-function: ease-in;
+	-o-transition-timing-function: ease-in;
+	transition-timing-function: ease-in;
 }
 .imgWrap > img{
 	width: 320px;
@@ -394,6 +403,18 @@
 	vertical-align: middle;
 	border-style: none;
 	text-align: left;
+}
+.cw:hover .imgWrap:after{
+	background-color: rgba(22, 26, 39, 0);
+	-webkit-transition-property: background-color;
+	-o-transition-property: background-color;
+	transition-property: background-color;
+	-webkit-transition-duration: .2s;
+	-o-transition-duration: .2s;
+	transition-duration: .2s;
+	-webkit-transition-timing-function: ease-in;
+	-o-transition-timing-function: ease-in;
+	transition-timing-function: ease-in;
 }
 .txtWrap{
 	text-align: left;
@@ -1014,6 +1035,7 @@
 .section10{
 	background: #f5f6f8;
 	padding: 100px 0;
+	padding-bottom: 50px;
 }
 .s10_container1{
 	margin-bottom: 40px;
@@ -1041,6 +1063,8 @@
 	font-size: 15px;
 	font-family: sans-serif;
 	font-weight: bold;
+	display: block;
+	margin-top: 70px;
 }
 
 .section11{
@@ -1101,6 +1125,92 @@
 	font-size: 16px;
 	font-family: sans-serif;
 	color: #979aa7;
+}
+.s12_container2 > .tblWrap{
+	width: 100%;
+}
+.s12_container2 > .tblWrap > table{
+	width: 100%;
+}
+.s12_container2 > .tblWrap > table tr > th{
+	font-size: 17px;
+	color: #979aa7;
+	font-family: sans-serif;
+	border-top: 3px solid #333;
+	border-bottom: 1px solid #333;
+	text-align: center;
+	line-height: 50px;
+	font-weight: bold;
+}
+.s12_container2 > .tblWrap > table tr > th:nth-child(1){
+	width: 106px;
+}
+.s12_container2 > .tblWrap > table tr > th:nth-child(2){
+	width: 680px;
+}
+.s12_container2 > .tblWrap > table tr > th:nth-child(3){
+	width: 106px;
+}
+.s12_container2 > .tblWrap > table tr > th:nth-child(4){
+	width: 106px;
+}
+.s12_container2 > .tblWrap > table tr > th:nth-child(5){
+	width: 106px;
+}
+.s12_container2 > .tblWrap > table tr > td{
+	font-size: 16px;
+	color: #979aa7;
+	font-family: sans-serif;
+	border-bottom: 1px solid #333;
+	text-align: center;
+	line-height: 62px;
+}
+.s12_container2 > .tblWrap > table tr > td:nth-child(2){
+	text-align: left;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	word-wrap:normal;
+	overflow: hidden;
+}
+.s12_container2 > .tblWrap > table tr > td > a{
+	font-size: 16px;
+	color: #979aa7;
+	font-family: sans-serif;
+}
+.s12_container2 > .tblWrap > table tr > td > a:hover{
+	color: #333;
+	text-decoration: underline;
+}
+
+.page{
+	margin: 15px auto;
+}
+.page > ul{
+	text-align: center;
+}
+.page ul li{
+	margin:0 auto;
+	list-style: none;
+	display: inline-block;
+	text-align:center;
+	border:1px solid #e9e9e9;
+	border-radius: 8px;
+	margin: 0 1px;
+	background: #fafafa;
+}
+.active1{
+	background: #4a7899 !important;
+}
+.active2{
+	font-weight: bold;
+	color:white;
+}
+.page ul li a{
+	display:inline-block;
+	width:35px;
+	height:30px;
+	font-size:1.1em;
+	line-height: 30px;
 }
 </style>
 <script>
@@ -1941,7 +2051,7 @@ $(function(){
 					<div class="s10_textWrap">
 						<h3>SNS</h3>
 						<p>CoreDiet's SNS.</p>
-						<a href="https://www.instagram.com/explore/tags/%EB%94%A5%EB%A1%A4%EB%9F%AC/" target="_blank" tabindex="0">Instagram에서 코어다이어트 딥롤러  바로가기</a>
+						<a href="https://www.instagram.com/explore/tags/%EB%94%A5%EB%A1%A4%EB%9F%AC/" target="_blank" tabindex="0">코어다이어트 딥롤러 Instagram 후기 바로가기</a>
 					</div>
 				</div><!-- s10_container1 end -->
 			</div><!-- section10 end -->
@@ -1968,7 +2078,56 @@ $(function(){
 						<p>CoreDiet's Library</p>
 					</div>
 				</div>
-			</div>
+				<div class="s12_container2 container">
+					<div class="tblWrap">
+						<table>
+							<tr>
+								<th>순번</th>
+								<th>제목</th>
+								<th>작성자</th>
+								<th>작성일</th>
+								<th>조회</th>
+							</tr>
+							<c:choose>
+							    <c:when test="${fn:length(list) == 0}">
+						        	<tr>
+						        		<td colspan="5" style=" text-align: center;">등록된 게시물이 없습니다.</td>
+						        	</tr>
+							    </c:when>
+							    
+							    <c:otherwise>
+							    	<c:set var="num" value="${pageMaker.totalCount - ((pageMaker.cri.page -1) *10)}"></c:set>
+							        <c:forEach var="item" items="${list}">
+										<tr>
+											<td>${num}</td>
+											<td><a href="${pageContext.request.contextPath}/noticeRead${pageMaker.makeSearch(pageMaker.cri.page)}&no=${item.no}">${item.title}</a></td>
+											<td>${item.writer}</td>
+											<td>${item.regdate}</td>
+											<td>${item.cnt}</td>
+										</tr>
+										<c:set var="num" value="${num-1}"></c:set>	
+									</c:forEach>
+							    </c:otherwise> 
+							</c:choose>
+						</table>
+					</div><!-- tblWrap end -->
+					<div class="page">
+						<ul>
+							<c:if test="${pageMaker.prev}">
+								<li><a href="${pageMaker.makeSearch(pageMaker.startPage-1) }">&laquo;</a></li>
+							</c:if>
+							
+							<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+								<li ${pageMaker.cri.page == idx? 'class=active1':''}><a href="${pageMaker.makeSearch(idx)}" ${pageMaker.cri.page == idx? 'class=active2':''}>${idx}</a></li>
+							</c:forEach>
+							
+							<c:if test="${pageMaker.next}">
+								<li><a href="${pageMaker.makeSearch(pageMaker.endPage+1)}">&raquo;</a></li>
+							</c:if>
+						</ul>
+					</div>
+				</div><!-- s12_container2 end -->
+			</div><!-- section12 end -->
 		</div><!-- sectionWrap end -->
 	</div><!-- allWrap end -->
 </body>
