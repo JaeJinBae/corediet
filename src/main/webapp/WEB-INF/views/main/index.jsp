@@ -11,8 +11,8 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/slick/slick-theme.css"/>
-<!-- <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet"> -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/slick/slick.min.js"></script>
@@ -29,6 +29,43 @@
 	top:0;
 	background: rgba(0, 0, 0, 0.9);
 	z-index: 999;
+}
+.topBtn{
+	display: none;
+	font-size: 30px;
+	line-height: 50px;
+	position: fixed;
+	bottom: 30px;
+	right: 20px;
+	z-index: 11;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 50%;
+	-webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
+	-webkit-transition: .3s ease-out;
+	-o-transition: .3s ease-out;
+	transition: .3s ease-out;
+}
+.topBtn:hover{
+	font-size: 30px;
+	line-height: 50px;
+	position: fixed;
+	bottom: 30px;
+	right: 20px;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	border-radius: 50%;
+	background: #3398dc;
+	color: #fff;
+	-webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
+	-webkit-transition: .3s ease-out;
+	-o-transition: .3s ease-out;
+	transition: .3s ease-out;
 }
 .sectionWrap{
 	width: 100%;
@@ -505,7 +542,7 @@
 	position: relative;
 	z-index: 3;
 	width: 100%;
-	max-width: 1400px;
+	max-width: 1140px;
 	margin: 0 auto;
 	padding: 0 15px;
 	
@@ -1424,13 +1461,20 @@ $(function(){
 	    	$(".header").css("background", "rgba(255, 255, 255, 0.9)");
 	    	$(".headerWrap > .logoWrap > a > img").prop("src", "${pageContext.request.contextPath}/resources/images/logo2.png");
 	    	$(".headerWrap > .menuWrap > ul > li > a").css("color", "rgba(0, 0, 0, 0.8)")
+	    	$(".topBtn").fadeIn();
 	    } 
 	    else{ 
 	    	$(".header").css("background","rgba(0, 0, 0, 0.9)");
 	    	$(".headerWrap > .logoWrap > a > img").prop("src", "${pageContext.request.contextPath}/resources/images/logo.png");
 	    	$(".headerWrap > .menuWrap > ul > li > a").css("color", "rgba(255, 255, 255, 0.8)")
+	    	$(".topBtn").fadeOut();
 	    }
-	  })
+	  });
+	
+	$(".topBtn").click(function(e){
+		e.preventDefault();
+		$('html,body').animate({scrollTop:0}, 500);
+	});
 	
 	$(".s03_container2 > ul > li").click(function(){
 		$(".s03_container2 > ul > li").css("border", "none");
@@ -1509,6 +1553,7 @@ $(function(){
 		<div class="header">
 			<jsp:include page="../include/header.jsp"></jsp:include>
 		</div>
+		<a class="topBtn" href="">↑</a>
 		<div class="sectionWrap">
 			<div class="section01 section" id="section01">
 				<div class="s01_container container">
