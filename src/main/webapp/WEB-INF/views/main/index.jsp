@@ -21,14 +21,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 .allWrap{
-	width:100%;	
+	width:100%;
+	position: relative;
 }
+.popupWrap{
+	display: none;
+	position: fixed;
+	top:0;
+	left: 0;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+}
+.popupWrap > .popup_bg{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+}
+.popupWrap > .popup_contentWrap{
+	position: fixed;
+	top: 88px;
+	left: 50%;
+	margin-left: -400px;
+	width: 900px;
+	height: 87%;
+	background: #fff;
+	overflow: scroll;
+}
+.popupWrap > .popup_contentWrap > .popup_content{
+	width: 100%;
+	text-align: center;
+	padding-top: 75px;
+	position: relative;
+}
+.popupWrap > .popup_contentWrap > .popup_content > button{
+	position: fixed;
+	top: 20px;
+	right: 37px;
+	background: rgba(0,0,0,0.4);
+	font-size: 14px;
+	padding: 5px 10px;
+	color: #fff;
+}
+.popupWrap > .popup_content > img{
+	/* width: 100%; */
+}
+
 .header{
 	width: 100%;
 	position: fixed;
 	top:0;
 	background: rgba(0, 0, 0, 0.9);
-	z-index: 999;
+	z-index: 99;
 }
 .topBtn{
 	display: none;
@@ -1471,6 +1518,15 @@ $(function(){
 	    }
 	  });
 	
+	$("#openPopupBtn").click(function(e){
+		e.preventDefault();
+		$(".popupWrap").css("display", "block");
+	});
+	
+	$(".popup_content > button").click(function(){
+		$(".popupWrap").css("display", "none");
+	});
+	
 	$(".topBtn").click(function(e){
 		e.preventDefault();
 		$('html,body').animate({scrollTop:0}, 500);
@@ -1550,6 +1606,16 @@ $(function(){
 </head>
 <body>
 	<div class="allWrap">
+		<div class="popupWrap">
+			<div class="popup_bg"></div>
+			<div class="popup_contentWrap">
+				<div class="popup_content">
+					<button>X CLOSE</button>
+					<img src="${pageContext.request.contextPath}/resources/images/deep_detail1.png">
+					<img src="${pageContext.request.contextPath}/resources/images/deep_detail2.png">
+				</div><!-- popup_content end -->
+			</div><!-- popup_contentWrap end -->
+		</div><!-- popupWrap end -->
 		<div class="header">
 			<jsp:include page="../include/header.jsp"></jsp:include>
 		</div>
