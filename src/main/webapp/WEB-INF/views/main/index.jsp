@@ -59,12 +59,14 @@
 }
 .popupWrap > .popup_contentWrap > .popup_content > button{
 	position: fixed;
-	top: 20px;
-	right: 37px;
+	top: 12%;
+	right: 45%;
 	background: rgba(0,0,0,0.4);
-	font-size: 14px;
-	padding: 5px 10px;
+	font-size: 15px;
+	padding: 7px 12px;
 	color: #fff;
+	font-family: sans-serif;
+	letter-spacing: 0.5px;
 }
 .popupWrap > .popup_content > img{
 	/* width: 100%; */
@@ -980,6 +982,7 @@
 	box-shadow: 2px 2px 2px #eee;
 	background: #fff;
 	text-align: center;
+	cursor: pointer;
 }
 .slideTextWrap > h5{
 	font-size: 14px;
@@ -1417,8 +1420,9 @@ function get_youtubeInfo(){
 	var dt;
 	//AIzaSyBw57piloo_YIBIU8t31eHwfOu-Alw4aUI
 	//url매개변수주소 : https://developers.google.com/youtube/v3/docs/search/list?hl=ko
+	var url1 = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyBw57piloo_YIBIU8t31eHwfOu-Alw4aUI&q=딥롤러&part=snippet&maxResults=10&type=video";
 	$.ajax({
-		url:"https://www.googleapis.com/youtube/v3/search?key=AIzaSyBw57piloo_YIBIU8t31eHwfOu-Alw4aUI&q=딥롤러&part=snippet&maxResults=10&type=video",
+		url:encodeURI(url1),
 		type:"get",
 		dataType:encodeURI("json"),
 		async:false,
@@ -1502,6 +1506,12 @@ function draw_notice(info){
 }
 
 $(function(){
+	$(".menuWrap > ul > li > a:not(#openPopupBtn)").click(function(e){
+		e.preventDefault();
+		var target = $(this).attr("href");
+		$("html,body").animate({scrollTop:$(target).offset().top}, 500);
+	});
+	
 	$(window).scroll(function(){ 
 	    var scroll = $(window).scrollTop(); 
 	    if(scroll>1){ 
@@ -1557,8 +1567,13 @@ $(function(){
 	  speed: 1000,
 	  slidesToShow: 4,
 	  slidesToScroll: 1,
-	  autoplay: false,
+	  autoplay: true,
 	  autoplaySpeed: 2000,
+	});
+	
+	$(document).on("click", ".slideTextWrap", function(){
+		var link = $(this).find("input[name='link']").val();
+		window.open(link);
 	});
 	
 	draw_youtubeInfo();
