@@ -54,6 +54,23 @@ public class HomeController {
 		return "main/index";
 	}
 	
+	@RequestMapping(value = "/eng", method = RequestMethod.GET)
+	public String engHome(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+		logger.info("engMain get");
+		
+		List<NoticeVO> list = nService.listSearch(cri);
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.makeSearch(cri.getPage());
+		pageMaker.setTotalCount(nService.listSearchCount(cri));
+		
+		model.addAttribute("list", list);
+		model.addAttribute("pageMaker", pageMaker);
+		
+		return "main/indexEng";
+	}
+	
 	@RequestMapping(value = "/search_blog_get", method = RequestMethod.GET)
 	public ResponseEntity<Map<String, Object>> register() {// @RequestBody이거 쓰면 무조건 json형식 사용할 때 씀
 		

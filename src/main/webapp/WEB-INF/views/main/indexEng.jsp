@@ -122,7 +122,7 @@
 }
 .section01{
 	width: 100%;
-	background: url("${pageContext.request.contextPath}/resources/images/section01_bg.jpg") no-repeat;
+	background: url("${pageContext.request.contextPath}/resources/engImg/engSection01_bg.jpg") no-repeat;
 	background-size: cover;
 	background-position: center;
 	position: relative;
@@ -1566,10 +1566,10 @@ $(function(){
 			</div><!-- section01 end -->
 			<div class="section02 section" id="section02">
 				<div class="s02_container1">
-					<img src="${pageContext.request.contextPath}/resources/images/section02_img1.jpg">
+					<img src="${pageContext.request.contextPath}/resources/engImg/engSection02_img1.jpg">
 				</div>
 				<div class="s02_container2">
-					<img src="${pageContext.request.contextPath}/resources/images/section02_img2.jpg">
+					<img src="${pageContext.request.contextPath}/resources/engImg/engSection02_img2.jpg">
 				</div><!-- s02_container2 end -->
 			</div><!-- section02 end -->
 			<div class="section03 section" id="section03">
@@ -1602,7 +1602,7 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2018. 07</h5>
-											<h3>벤처기업 등록 (제20180108663호)</h3>
+											<h3>Registered as a venture company (No.20180108663)</h3>
 											<p></p>
 										</div>
 									</div>
@@ -1626,7 +1626,7 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2018. 06</h5>
-											<h3>(주)코드바이오 다이어트 건기식, 크림 연구개발 MOU체결</h3>
+											<h3>Signed MOU with CODEBIO diet dry season, cream R&D</h3>
 											<p></p>
 										</div>
 									</div>
@@ -1650,7 +1650,7 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2018. 06</h5>
-											<h3>벨라이트 중국 상표 출원</h3>
+											<h3>Bellite Chinese Trademark Application</h3>
 											<p></p>
 										</div>
 									</div>
@@ -1674,7 +1674,7 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2018. 06</h5>
-											<h3>(주)티앤아이 벨라이트 유통 및 마케팅 업무 MOU체결</h3>
+											<h3>Signed MOU with T&I BellLight Distribution and Marketing Business</h3>
 											<p></p>
 										</div>
 									</div>
@@ -1698,7 +1698,7 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2018. 06</h5>
-											<h3>행복한재활의학과의원 다이어트 브랜드 벨라이트 임상실험 업무 MOU체결</h3>
+											<h3>Signed MOU with HappyRehabilitation Medicine Diet Brand Bellite Clinical Trial</h3>
 											<p></p>
 										</div>
 									</div>
@@ -1722,7 +1722,7 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2018. 06</h5>
-											<h3>온라인 쇼핑몰 프로팡 상표등록</h3>
+											<h3>Online shopping mall propang trademark registration</h3>
 											<p></p>
 										</div>
 									</div>
@@ -1746,7 +1746,7 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2018. 06</h5>
-											<h3>온라인 쇼핑몰 프로팡 “PROPANG” 오픈</h3>
+											<h3>Open online shopping mall Propang "PROPANG"</h3>
 											<p></p>
 										</div>
 									</div>
@@ -1770,8 +1770,8 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2017. 10</h5>
-											<h3>복부의 코어 근육 강화를 위한 전극 채널의 구동장치</h3>
-											<p>(특허출원 : 10-2017-0180877)</p>
+											<h3>Actuator of electrode channel for reinforcement of core muscle of abdomen</h3>
+											<p>(Patent application: 10-2017-0180877)</p>
 										</div>
 									</div>
 								</div>
@@ -1795,7 +1795,7 @@ $(function(){
 			                            <div class="txtWrap">
 											<h5>2017. 09</h5>
 											<h3>DRIVE DEVICE OF ELECTRODE CHANNEL FOR STRENGTHENING CORE MUSCLE OF ABDOMINAL REGION.</h3>
-											<p>(미국 특허 출원 : 15/853,991)</p>
+											<p>(US patent application: 15 / 853,991)</p>
 										</div>
 									</div>
 								</div>
@@ -1818,8 +1818,8 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2017. 07</h5>
-											<h3>복부의 코어 근육 강화를 위한 전기 자극 장치</h3>
-											<p>(특허출원 : 10-2017-0117928)</p>
+											<h3>Electro stimulator for strengthening the core muscles of the abdomen</h3>
+											<p>(Patent application: 10-2017-0117928)</p>
 										</div>
 									</div>
 								</div>
@@ -1844,8 +1844,8 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2018. 07. 14</h5>
-											<h3>“코어다이어트 딥롤러(폼롤러)” 출시</h3>
-											<p>(주)메드사피엔스 개발&제작 브랜드</p>
+											<h3>Launched “Core Diet Deep Roller (Form Roller)”</h3>
+											<p>Med Sapiens Co., Ltd. Development&Production Brand</p>
 										</div>
 									</div>
 								</div>
@@ -1868,7 +1868,7 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2018. 07</h5>
-											<h3>딥롤러 디자인 출원</h3>
+											<h3>Deep roller design application</h3>
 											<p></p>
 										</div>
 									</div>
@@ -1892,8 +1892,8 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2018. 07</h5>
-											<h3>COERDIET (코어다이어트), DEEPROLLER (딥롤러)</h3>
-											<p>상표 출원</p>
+											<h3>COERDIET, DEEPROLLER</h3>
+											<p>Trademark application</p>
 										</div>
 									</div>
 								</div>
@@ -1916,8 +1916,8 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2018. 07</h5>
-											<h3>대사 증진을 위한 척추 교정용 정형 폼 롤러</h3>
-											<p>특허출원 (10-2018-0074642)</p>
+											<h3>Orthopedic Foam Roller for Metabolic Enhancement</h3>
+											<p>Patent application (10-2018-0074642)</p>
 										</div>
 									</div>
 								</div>
@@ -1940,7 +1940,7 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2017. 11</h5>
-											<h3>가누다 헬스케어 전문가 몰 “티앤몰” 및 가누다 메디컬 라인 운영권 및 판매 독점 계약 체결</h3>
+											<h3>Signed exclusive contract with Ganuda Healthcare Specialist Mall "T&Mol" and Kanuda Medical Line operating rights and sales.</h3>
 											<p></p>
 										</div>
 									</div>
@@ -1964,7 +1964,7 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2017. 01</h5>
-											<h3>(주)메드사피엔스 법인명 상표등록</h3>
+											<h3>Registered trademark of Med Sapiens Co., Ltd.</h3>
 											<p></p>
 										</div>
 									</div>
@@ -1988,7 +1988,7 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2017. 01</h5>
-											<h3>(주)메드사피엔스 기업부설 연구소 설립</h3>
+											<h3>Established Med Sapiens R&D Center</h3>
 											<p></p>
 										</div>
 									</div>
@@ -2012,7 +2012,7 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2016. 11</h5>
-											<h3>김희수 대표 KBS “무엇이든 물어보세요 출연”</h3>
+											<h3>Kim Hee-soo, CEO KBS "Ask Anything" Appeared</h3>
 											<p></p>
 										</div>
 									</div>
@@ -2036,7 +2036,7 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2016. 11</h5>
-											<h3>김희수 대표 신지식인 인증</h3>
+											<h3>Kim Hee-soo, CEO of the New Intellectual Property Certificate</h3>
 											<p></p>
 										</div>
 									</div>
@@ -2060,7 +2060,7 @@ $(function(){
 										</div>			
 			                            <div class="txtWrap">
 											<h5>2016. 08</h5>
-											<h3>(주)메드사피엔스 법인 설립</h3>
+											<h3>Establishment of Medesapiens Corporation</h3>
 											<p></p>
 										</div>
 									</div>
@@ -2082,16 +2082,16 @@ $(function(){
 				<div class="s05_container1 container">
 					<div class="s05_con_top">
 						<div class="s05_textWrap">
-							<p><strong>하루 10분!</strong></p>
-							<p>딥롤러 운동으로<br>척추 건강 관리 해결!</p>
+							<p><strong>10minutes a day!</strong></p>
+							<p>Deep-roller Exercise Solves<br>Spine Health Care!</p>
 						</div>
 					</div>
 					<div class="s05_con_bottom">
 						<img class="s05_con_bottom_img1" src="${pageContext.request.contextPath}/resources/images/section05_img01.png" alt="딥롤러">
-						<p class="s05_con_bottom_p1">척추의 자생력을 깨우다<br>건강한 몸으로 가누다</p>
+						<p class="s05_con_bottom_p1">awaken the magnetic force of the spine<br>in good health KANUDA</p>
 						<img class="s05_con_bottom_img2" src="${pageContext.request.contextPath}/resources/images/section05_img02.jpg" alt="딥롤러 사용 구조도 이미지">
-						<p class="s05_con_bottom_p2">척추 건강의 효과적인 해법 딥롤러</p>
-						<a href="https://smartstore.naver.com/corediet/products/3537520532" target="_blank"><i class=""></i>> 딥롤러 구매하기</a>
+						<p class="s05_con_bottom_p2">Effective solution of spinal health Deep Roller</p>
+						<a href="https://smartstore.naver.com/corediet/products/3537520532" target="_blank"><i class=""></i>> Buy Deep Roller</a>
 						<div class="shop_link_img">
 							<a href="https://smartstore.naver.com/corediet/products/3537520532" target="_blank" title="딥롤러 구매페이지 새창으로 보기">
 								<img src="${pageContext.request.contextPath}/resources/images/section05_img03.png" alt="딥롤러이미지" title="">
@@ -2190,7 +2190,7 @@ $(function(){
 				<div class="s07_container1">
 					<div class="s07_textWrap">
 						<h3>CONTACT</h3>
-						<p>Address: <strong>경기도 하남시 미사강변중앙로 212, 1301호 (망월동, 미사강변 안강프라이빗뷰)</strong></p>
+						<p>Address: <strong>No. 212, 1301 at the center of Misagang River in Hanam, Gyeonggi-do, Korea (Mangwol-dong, Angang Private View along the Misa River)</strong></p>
 						<div class="s07_infoWrap">
 							<p>EMAIL: <a class="g-color-black" href="mailto:medsapiens@naver.com"><strong>medsapiens@naver.com</strong></a></p>
 							<p>TEL: <strong>031-792-6554</strong></p>
@@ -2258,7 +2258,7 @@ $(function(){
 					<div class="s10_textWrap">
 						<h3>SNS</h3>
 						<p>CoreDiet's SNS.</p>
-						<a href="https://www.instagram.com/explore/tags/%EB%94%A5%EB%A1%A4%EB%9F%AC/" target="_blank" tabindex="0">코어다이어트 딥롤러 Instagram 후기 바로가기</a>
+						<a href="https://www.instagram.com/explore/tags/%EB%94%A5%EB%A1%A4%EB%9F%AC/" target="_blank" tabindex="0">Corediet Deep Roller Instagram Post Shortcut</a>
 					</div>
 				</div><!-- s10_container1 end -->
 			</div><!-- section10 end -->
@@ -2273,7 +2273,7 @@ $(function(){
 					<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.2"></script>
 					<div class="fb-page" data-href="https://www.facebook.com/corediet/" data-tabs="timeline" data-width="300" data-height="550" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
 						<blockquote cite="https://www.facebook.com/corediet/" class="fb-xfbml-parse-ignore">
-							<a href="https://www.facebook.com/corediet/">코어다이어트 딥롤러</a>
+							<a href="https://www.facebook.com/corediet/">Corediet Deep Roller</a>
 						</blockquote>
 					</div>
 				</div><!-- s11_container2 end -->
@@ -2292,7 +2292,7 @@ $(function(){
 						</table>
 					</div><!-- tblWrap end -->
 					<div class="noticeBtnWrap">
-						<p>글쓰기</p>
+						<p>Write</p>
 					</div>
 					<div class="page">
 						
