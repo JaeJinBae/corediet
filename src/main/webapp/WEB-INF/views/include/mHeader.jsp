@@ -78,7 +78,7 @@
 
 @keyframes line-top-rotate {
   0% {transform:translateY(13px) rotateZ(0deg)}
-  100% {transform:translateY(13px) rotateZ(45deg)}
+  100% {transform:translateY(12px) rotateZ(45deg)}
 }
 
 /* 추가된 부분 */
@@ -132,7 +132,7 @@
 }
 .menu_nav_ul{
 	width: 100%;
-	padding-top: 20px;
+	padding: 15px 0;
 }
 .menu_nav_ul > li{
 	
@@ -177,13 +177,24 @@ $(function(){
 		$('#line-mid').toggleClass('line-mid').toggleClass('mid-reverse');
 		$('#line-bot').toggleClass('line-bot').toggleClass('bot-reverse');
 		$(".menu_nav_wrap").slideToggle("fast");
-	})
+	});
+	
+	$(".menu_nav_wrap > .menu_nav_ul > li > a:not(#openPopupBtn)").click(function(e){
+		e.preventDefault();
+		var target = $(this).attr("href");
+		$("html,body").animate({scrollTop:$(target).offset().top}, 500);
+		$(".menu_nav_wrap").slideUp("fast");
+		$('.line').removeClass('init');
+		$('#line-top').toggleClass('line-top').toggleClass('top-reverse');
+		$('#line-mid').toggleClass('line-mid').toggleClass('mid-reverse');
+		$('#line-bot').toggleClass('line-bot').toggleClass('bot-reverse');
+	});
 });
 </script>
 <div class="headerWrap">
 	<div class="headerContainer">
 		<!-- Logo -->
-		<a href="${pageContext.request.contextPath}/" class="logo">
+		<a href="${pageContext.request.contextPath}/m" class="logo">
 			<img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="CoreDiet">
 		</a><!-- End Logo -->
 		
@@ -198,13 +209,13 @@ $(function(){
 		<!-- Navigation -->
 		<div class="menu_nav_wrap" id="">
 			<ul id="" class="menu_nav_ul">
-				<li class=""><a href="" class="">ABOUT</a></li>
-				<li class=""><a href="" class="">HISTORY</a></li>
-				<li class=""><a href="" class="">BRANDS</a></li>
-				<li class=""><a href="" class="">REVIEW</a></li>
-				<li class=""><a href="" class="">CONTACT</a></li>
-				<li class=""><a href="" class="">LIBRARY</a></li>
-				<li class=""><a href="" class="">DEEP ROLLER</a></li>
+				<li class=""><a href="#section02" class="">ABOUT</a></li>
+				<li class=""><a href="#section03" class="">HISTORY</a></li>
+				<li class=""><a href="#section04" class="">BRANDS</a></li>
+				<li class=""><a href="#section10" class="">REVIEW</a></li>
+				<li class=""><a href="#section07" class="">CONTACT</a></li>
+				<li class=""><a href="#section12" class="">LIBRARY</a></li>
+				<li class=""><a id="openPopupBtn" href="#none" class="">DEEP ROLLER</a></li>
 			</ul>
 		</div><!-- End Navigation -->
 	</div>

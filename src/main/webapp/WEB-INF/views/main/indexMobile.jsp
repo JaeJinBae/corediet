@@ -1509,14 +1509,6 @@ function draw_notice(info){
 }
 
 $(function(){
-	$(".menuWrap > ul > li > a:not(#openPopupBtn)").click(function(e){
-		e.preventDefault();
-		var target = $(this).attr("href");
-		$("html,body").animate({scrollTop:$(target).offset().top}, 500);
-	});
-	
-	
-	
 	$("#openPopupBtn").click(function(e){
 		e.preventDefault();
 		$(".popupWrap").css("display", "block");
