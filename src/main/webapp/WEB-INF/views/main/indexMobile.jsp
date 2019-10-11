@@ -352,28 +352,6 @@
 	margin-bottom: 50px;
 	position: relative;
 }
-.cw > .smallCircle{
-	margin-left: -8px;
-	height: 16px;
-	width: 16px;
-	position: absolute;
-	top: 50%;
-	left: 18%;
-	-webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    -webkit-backface-visibility: hidden;
-	text-align: left;
-	z-index: 3;
-}
-.cw > .smallCircle > i{
-	width: 16px;
-	height: 16px;
-	border: 5px solid #eee;
-	display: inline-block;
-	background: #fff;
-	border-radius: 50px;
-}
 .cw > .contentWrap{
 	text-align: left;
 	display: -ms-flexbox;
@@ -385,11 +363,6 @@
 	-webkit-box-ordinal-group: 2;
     -ms-flex-order: 1;
     order: 1;
-	display: -ms-flexbox !important;
-	display: flex !important;
-	-ms-flex: 0 0 25%;
-	flex: 0 0 25%;
-	max-width: 25%;
 	position: relative;
 	width: 100%;
 	min-height: 1px;
@@ -427,37 +400,32 @@
 	margin-right: auto;
 	font-family: sans-serif;
 	font-weight: bold;
+	margin: 0 auto;
 }
 .rightAside{
 	position: relative;
 	width: 100%;
-	max-width: 75%;
+	/* max-width: 75%; */
 	min-height: 1px;
 	-webkit-box-ordinal-group: 3;
-	-ms-flex-order: 2;
-	order: 2;
-	-ms-flex: 0 0 75%;
-	flex: 0 0 75%;
-	max-width: 75%;
-	-ms-flex-align: start;
-	align-items: flex-start;
+	/* -ms-flex-order: 2;
+	order: 2; */
 	text-align: left;
 }
 .rAsideWrap{
-	display: -ms-flexbox !important;
-	display: flex !important;
+	/* display: -ms-flexbox !important;
+	display: flex !important; */
 }
 .imgWrap{
 	position: relative;
 	text-align: left;
-	margin-left: auto;
 	border-radius: 50%;
 	overflow: hidden;
 	width: 120px;
 	height: 120px;
-	margin-right: 30px;
-	display: -ms-flexbox !important;
-	display: flex !important;
+	margin: 0 auto;
+	/* display: -ms-flexbox !important;
+	display: flex !important; */
 }
 .imgWrap:before, .imgWrap:after{
 	content: "";
@@ -507,21 +475,21 @@
 	transition-timing-function: ease-in;
 }
 .txtWrap{
-	text-align: left;
+	text-align: center;
 	-ms-flex: 1;
 	flex: 1;
 	-ms-flex-item-align: center !important;
 	align-self: center !important;
 }
 .txtWrap > h5{
-	margin-bottom: 5px;
+	margin: 15px 0;
 	color: #3398dc;
 	font-size: 12px;
 	line-height: 1.3;
 	font-family: sans-serif;
 }
 .txtWrap > h3{
-	margin-bottom: 10px;
+	margin-bottom: 28px;
 	font-size: 18px;
 	color: #151826;
 	line-height: 1.4;
@@ -530,8 +498,9 @@
 .txtWrap > p{
 	color: #999;
 	font-size: 16px;
-	text-align: left;
+	text-align: center;
 	font-family: sans-serif;
+	margin-bottom: 20px;
 }
 .section04{
 	padding: 100px 0;
@@ -1658,9 +1627,6 @@ $(function(){
 				<div class="s03_container3 container">
 					<div class="s03_tab1">
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -1682,9 +1648,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -1706,9 +1669,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -1730,9 +1690,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -1754,9 +1711,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -1778,9 +1732,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -1802,9 +1753,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -1826,9 +1774,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -1850,9 +1795,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -1874,9 +1816,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -1900,9 +1839,6 @@ $(function(){
 					</div><!-- s03_tab1 end -->
 					<div class="s03_tab2">
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -1924,9 +1860,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -1948,9 +1881,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -1972,9 +1902,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -1996,9 +1923,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -2020,9 +1944,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -2044,9 +1965,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -2068,9 +1986,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -2092,9 +2007,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
@@ -2116,9 +2028,6 @@ $(function(){
 							</div>
 						</div><!-- cw end -->
 						<div class="cw">
-			                <div class="smallCircle">
-			                    <i></i>
-			                </div>
 			                <div class="contentWrap">
 								<div class="leftAside">
 									<div class="yearMonth">
