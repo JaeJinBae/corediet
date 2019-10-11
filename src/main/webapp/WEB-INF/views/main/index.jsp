@@ -1340,10 +1340,10 @@ function draw_blogSection(){
 
 function get_youtubeInfo(){
 	var dt;
-	//AIzaSyBw57piloo_YIBIU8t31eHwfOu-Alw4aUI
-	//AIzaSyBw57piloo_YIBIU8t31eHwfOu-Alw4aUI
+
+	//AIzaSyDQAWVlMmJgUdvvOzRNLKgm4Rx8rw8YbFA
 	//url매개변수주소 : https://developers.google.com/youtube/v3/docs/search/list?hl=ko
-	var url1 = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyBw57piloo_YIBIU8t31eHwfOu-Alw4aUI&q=딥롤러&part=snippet&maxResults=10&type=video";
+	var url1 = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDQAWVlMmJgUdvvOzRNLKgm4Rx8rw8YbFA&q=딥롤러&part=snippet&maxResults=10&type=video";
 	$.ajax({
 		url:encodeURI(url1),
 		type:"get",

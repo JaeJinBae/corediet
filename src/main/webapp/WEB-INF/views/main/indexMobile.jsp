@@ -1371,16 +1371,17 @@ function draw_blogSection(){
 
 function get_youtubeInfo(){
 	var dt;
-	//AIzaSyBw57piloo_YIBIU8t31eHwfOu-Alw4aUI
-	//AIzaSyBw57piloo_YIBIU8t31eHwfOu-Alw4aUI
+	
+	//AIzaSyDQAWVlMmJgUdvvOzRNLKgm4Rx8rw8YbFA
 	//url매개변수주소 : https://developers.google.com/youtube/v3/docs/search/list?hl=ko
-	var url1 = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyBw57piloo_YIBIU8t31eHwfOu-Alw4aUI&q=딥롤러&part=snippet&maxResults=10&type=video";
+	var url1 = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDQAWVlMmJgUdvvOzRNLKgm4Rx8rw8YbFA&q=딥롤러&part=snippet&maxResults=10&type=video";
 	$.ajax({
 		url:encodeURI(url1),
 		type:"get",
 		dataType:encodeURI("json"),
 		async:false,
 		success:function(result){
+			console.log(result);
 			dt = result.items;
 		}
 	})
@@ -1397,7 +1398,7 @@ function draw_youtubeInfo(){
 		splitRegd = regd.split("T");
 		str += "<div class='s09_slideContent'>"
 			+ "<div class='s09_s_imgWrap'><a href='https://www.youtube.com/watch?v="+this.id.videoId+"' target='_blank' tabindex='0'><img src='"+this.snippet.thumbnails.medium.url+"'></a></div>"
-			+ "<div class='s09_s_textWrap'><h5>"+this.snippet.title+"</h5><p>"+splitRegd[0]+"</p><h4>"+this.snippet.description+"</h4></div></div>";
+			+ "<div class='s09_s_textWrap'><h5>"+this.snippet.title+"</h5><p>"+splitRegd[0]+"</p></div></div>";
 	});
 	$(".s09_slides").html(str);
 	
@@ -1512,7 +1513,7 @@ $(function(){
 	
 	$('.s09_slides').slick({
 	  dots: false,
-	  slidesToShow: 3,
+	  slidesToShow: 1,
 	  slidesToScroll: 1,
 	  centerMode: true,
 	});
