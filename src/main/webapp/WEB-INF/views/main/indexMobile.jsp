@@ -870,11 +870,11 @@
 	font-size: 13px;
 }
 .s07_infoWrap > p{
-	float: left;
-	width: 33.33%;
+	width: 100%;
 	text-align: center;
 	font-family: sans-serif;
 	font-size: 14px;
+	margin-bottom: 20px;
 }
 .s07_infoWrap > p > a{
 	color: #333;
@@ -883,8 +883,8 @@
 .s07_container2{
 	position: absolute;
     bottom: -360px;
-    left: 50%;
-    margin-left: -570px;
+    /* left: 50%;
+    margin-left: -570px; */
 }
 .s07_container2 > .mapWrap{
 	width: 100%;
@@ -973,10 +973,12 @@
 .slick-prev{
 	background: url("${pageContext.request.contextPath}/resources/images/icon_prev_arrow.jpg") no-repeat;
 	background-size: cover;
+	left: 35%;
 }
 .slick-next{
 	background: url("${pageContext.request.contextPath}/resources/images/icon_next_arrow.jpg") no-repeat;
 	background-size: cover;
+	right: 35%;
 }
 .section09{
 	background: #fff;
@@ -1188,31 +1190,26 @@
 	line-height: 50px;
 	font-weight: bold;
 }
-/* .s12_container2 > .tblWrap > table tr > th:nth-child(1){
-	width: 106px;
+.s12_container2 > .tblWrap > table tr > th:nth-child(1){
+	width: 75%;
 }
 .s12_container2 > .tblWrap > table tr > th:nth-child(2){
-	width: 680px;
+	width: 25%;
 }
-.s12_container2 > .tblWrap > table tr > th:nth-child(3){
-	width: 106px;
-}
-.s12_container2 > .tblWrap > table tr > th:nth-child(4){
-	width: 106px;
-}
-.s12_container2 > .tblWrap > table tr > th:nth-child(5){
-	width: 106px;
-} */
 .s12_container2 > .tblWrap > table tr > td{
 	font-size: 16px;
 	color: #979aa7;
-	font-family: sans-serif;
+	font-family: sans-serif; 
 	border-bottom: 1px solid #333;
 	text-align: center;
 	line-height: 62px;
 }
-.s12_container2 > .tblWrap > table tr > td:nth-child(2){
+.s12_container2 > .tblWrap > table tr > td:nth-child(1){
 	text-align: left;
+	padding-left: 5px;
+}
+.s12_container2 > .tblWrap > table tr > td:nth-child(2){
+	text-align: center;
 	text-overflow:ellipsis;
 	white-space:nowrap;
 	word-wrap:normal;
@@ -1500,7 +1497,7 @@ $(function(){
 	  dots: false,
 	  infinite: true, 
 	  speed: 1000,
-	  slidesToShow: 4,
+	  slidesToShow: 1,
 	  slidesToScroll: 1,
 	  autoplay: true,
 	  autoplaySpeed: 2000,
