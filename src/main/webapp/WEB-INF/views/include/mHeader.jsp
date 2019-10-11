@@ -1,133 +1,211 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <style>
-	.header{
-		width:100%;
-		position: relative;
-		background: #fff;
-	}
-	.logoWrap{
-		width: 100%;
-		text-align: center;
-		padding: 10px 0;
-		border-bottom: 1px solid lightgray;
-	}
-	.logoWrap > a > img{
-		width: 200px;
-	}
-	.mainMenuWrap{
-		width: 100%;
-		height:39px;
-		/* overflow: hidden; */
-	}
-	.mainMenu{
-		width: 25%;
-		float: left;
-	}
-	.mainMenu > li{
-		width: 100%;
-		text-align: center;
-		background: #fff;
-	}
-	.mainMenu > li > p{
-		font-size: 14px;
-		padding: 10px 0 11px 0;
-		border-right: 1px solid lightgray;
-		border-bottom: 1px solid lightgray;
-	}
-	.mainMenu:nth-child(3) > li > p{
-		letter-spacing: -2px;
-	}
-	.mainMenu:last-child > li > p{
-		border-right: 0;
-	}
-	.subMenu{
-		display: none;
-		border: 1px solid lightgray;
-		background: #fff;
-	}
-	.mainMenu:nth-child(2) > li >.subMenu{
-		width: 115px;
-	}
-	.subMenu > li{
-		padding: 9px 0;
-		text-align: center;
-	}
-	.subMenu > li > a{
-		font-size: 14px;
-	}
+.headerWrap{
+	width: 100%;
+}
+.headerContainer{
+	position: relative;
+}
+.logo{
+	padding: 12px;
+}
+.logo > img{
+	padding: 13px 0px;
+}
+#line-wrapper {
+  cursor: pointer;
+  width: 56px;
+  height: 35px;
+  position: absolute;
+  top: 22px;
+  right: -5px;
+}
+
+/* 추가된 부분 */
+.init {
+  animation:none !important;
+}
+
+.line {
+  background:#eaeaea;
+  margin-top:6px;
+  margin-bottom:6px;
+  width:33px;
+  height:4px; 
+  border-radius:2px;
+  box-shadow:0 1px 3px rgba(0,0,0,.5);
+  position:relative;
+}
+
+.line-top {
+  animation:line-top .5s forwards ease-out, line-top-rotate .3s .5s forwards ease-out;
+}
+
+/* 추가된 부분 */
+.top-reverse {
+  animation:line-top-rotate-reverse .3s forwards ease-out, line-top-reverse .5s .3s forwards ease-out;
+}
+
+.line-mid {
+  animation:line-mid .5s forwards ease-out;
+}
+
+/* 추가된 부분 */
+.mid-reverse {
+  animation:line-mid-invisible .3s forwards ease-out, line-mid-reverse .5s .3s forwards ease-out;
+}
+
+.line-bot {
+  animation:line-bot .5s forwards ease-out, line-bot-rotate .3s .5s forwards ease-out;
+}
+
+/* 추가된 부분 */
+.bot-reverse {
+  animation:line-bot-rotate-reverse .3s forwards ease-out, line-bot-reverse .5s .3s forwards ease-out;
+}
+
+@keyframes line-top {
+  0% {transform:translateY(0px)}
+  100% {transform:translateY(13px)}
+}
+
+/* 추가된 부분 */
+@keyframes line-top-reverse {
+  0% {transform:translateY(13px)}
+  100% {transform:translateY(0px)}
+}
+
+@keyframes line-top-rotate {
+  0% {transform:translateY(13px) rotateZ(0deg)}
+  100% {transform:translateY(13px) rotateZ(45deg)}
+}
+
+/* 추가된 부분 */
+@keyframes line-top-rotate-reverse {
+  0% {transform:translateY(13px) rotateZ(45deg)}
+  100% {transform:translateY(13px) rotateZ(0deg)}
+}
+
+@keyframes line-mid {
+  0% {transform:scale(1)}
+  100% {transform:scale(0)}
+}
+
+/* 추가된 부분 */
+@keyframes line-mid-reverse {
+  0% {transform:scale(0)}
+  100% {transform:scale(1)}
+}
+
+@keyframes line-mid-invisible {
+  0% {transform:scale(0)}
+  100% {transform:scale(0)}
+}
+
+@keyframes line-bot {
+  0% {transform:translateY(0px)}
+  100% {transform:translateY(-8px)}
+}
+
+/* 추가된 부분 */
+@keyframes line-bot-reverse {
+  0% {transform:translateY(-8px)}
+  100% {transform:translateY(0px)}
+}
+
+@keyframes line-bot-rotate {
+  0% {transform:translateY(-8px) rotateZ(0deg)}
+  100% {transform:translateY(-8px) rotateZ(135deg)}
+}
+
+/* 추가된 부분 */
+@keyframes line-bot-rotate-reverse {
+  0% {transform:translateY(-8px) rotateZ(135deg)}
+  100% {transform:translateY(-8px) rotateZ(0deg)}
+}
+/* 메뉴 토글 버튼 끝 */
+
+.menu_nav_wrap{
+	width: 100%;
+	display: none;
+}
+.menu_nav_ul{
+	width: 100%;
+	padding-top: 20px;
+}
+.menu_nav_ul > li{
 	
+}
+.menu_nav_ul > li > a{
+	font-size: 20px;
+	font-weight: bold;
+	font-family: sans-serif;
+	color: #eaeaea;
+	padding: 0 25px;
+	line-height: 45px;
+}
+.menu_active{
+	display: block;
+}
+.menu_nonActive{
+	display: none;
+}
 </style>
 <script>
 $(function(){
-	$(".mainMenu").click(function(){
-		$(".mainMenu > li > p").css({"background":"#fff", "color":"#333333"});
-		$(".subMenu").css("display","none");
-		$(this).find(".subMenu").css("display","block");
-		$(this).find("p").css({"background":"#00557c", "color":"#fff"});
-	});
-	$(".sectionWrap").click(function(){
-		$(".mainMenu > li > p").css({"background":"#fff", "color":"#333333"});
-		$(".subMenu").css("display","none");
+	$(window).scroll(function(){ 
+		var scroll = $(window).scrollTop(); 
+		if(scroll>1){ 
+			$(".header").css("background", "rgba(255, 255, 255, 0.9)");
+			$(".headerWrap > .headerContainer > a > img").prop("src", "${pageContext.request.contextPath}/resources/images/logo2.png");
+			$(".menu_nav_ul > li > a").css("color", "rgba(0, 0, 0, 0.8)")
+			$(".topBtn").fadeIn();
+		}
+		else{ 
+			$(".header").css("background","rgba(0, 0, 0, 0.9)");
+			$(".headerWrap > .headerContainer > a > img").prop("src", "${pageContext.request.contextPath}/resources/images/logo.png");
+			$(".menu_nav_ul > li > a").css("color", "rgba(255, 255, 255, 0.8)")
+			$(".topBtn").fadeOut();
+		}
 	});
 	
+	$('#line-wrapper').click(function(){
+		/* 추가된 부분 */
+		$('.line').removeClass('init');
+		$('#line-top').toggleClass('line-top').toggleClass('top-reverse');
+		$('#line-mid').toggleClass('line-mid').toggleClass('mid-reverse');
+		$('#line-bot').toggleClass('line-bot').toggleClass('bot-reverse');
+		$(".menu_nav_wrap").slideToggle("fast");
+	})
 });
 </script>
-<div class="header">
-	<div class="logoWrap">
-		<a href="${pageContext.request.contextPath}/">
-			<img src="${pageContext.request.contextPath}/resources/images/logo.png">
-		</a>
+<div class="headerWrap">
+	<div class="headerContainer">
+		<!-- Logo -->
+		<a href="${pageContext.request.contextPath}/" class="logo">
+			<img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="CoreDiet">
+		</a><!-- End Logo -->
+		
+		<!-- Responsive Toggle Button -->
+		<div id="line-wrapper">
+			<!-- 추가된 부분 -->
+			<div id="line-top" class="line init top-reverse"></div>
+			<div id="line-mid" class="line init mid-reverse"></div>
+			<div id="line-bot" class="line init bot-reverse"></div>
+		</div><!-- End Responsive Toggle Button -->
+		
+		<!-- Navigation -->
+		<div class="menu_nav_wrap" id="">
+			<ul id="" class="menu_nav_ul">
+				<li class=""><a href="" class="">ABOUT</a></li>
+				<li class=""><a href="" class="">HISTORY</a></li>
+				<li class=""><a href="" class="">BRANDS</a></li>
+				<li class=""><a href="" class="">REVIEW</a></li>
+				<li class=""><a href="" class="">CONTACT</a></li>
+				<li class=""><a href="" class="">LIBRARY</a></li>
+				<li class=""><a href="" class="">DEEP ROLLER</a></li>
+			</ul>
+		</div><!-- End Navigation -->
 	</div>
-	<div class="mainMenuWrap">
-		<ul class="mainMenu">
-			<li>
-				<p>병원소개</p>
-				<ul class="subMenu">
-					<li><a href="${pageContext.request.contextPath}/mMenu01_01">의료진 소개</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu01_02">직원소개</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu01_03">병원둘러보기</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu01_04">오시는 길</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu01_05">공지사항</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu01_06">언론보도</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu01_07">비용공지</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu01_08">상담문의</a></li>
-				</ul>
-			</li>
-		</ul>
-		<ul class="mainMenu">
-			<li>
-				<p>비수술클리닉</p>
-				<ul class="subMenu">
-					<li><a href="${pageContext.request.contextPath}/mMenu02_01">초음파주사</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu02_02">C-ARM주사</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu02_03">Prolo주사</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu02_04">M-Puncture주사</a></li>
-				</ul>
-			</li>
-		</ul>
-		<ul class="mainMenu">
-			<li>
-				<p>재활/교정클리닉</p>
-				<ul class="subMenu">
-					<li><a href="${pageContext.request.contextPath}/mMenu03_01">재활도수치료</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu03_02">충격파치료</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu03_03">측만증</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu03_04">스포츠재활</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu03_05">수술후재활</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu03_06">산전/후재활</a></li>
-				</ul>
-			</li>
-		</ul>
-		<ul class="mainMenu">
-			<li>
-				<p>스페셜클리닉</p>
-				<ul class="subMenu">
-					<li><a href="${pageContext.request.contextPath}/mMenu04_01">영양치료</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu04_02">성장</a></li>
-					<li><a href="${pageContext.request.contextPath}/mMenu04_03">다이어트</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div><!-- mainMenuWrap end -->
 </div>

@@ -54,6 +54,23 @@ public class HomeController {
 		return "main/index";
 	}
 	
+	@RequestMapping(value = "/m", method = RequestMethod.GET)
+	public String mobileHome(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+		logger.info("main get");
+		
+		List<NoticeVO> list = nService.listSearch(cri);
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.makeSearch(cri.getPage());
+		pageMaker.setTotalCount(nService.listSearchCount(cri));
+		
+		model.addAttribute("list", list);
+		model.addAttribute("pageMaker", pageMaker);
+		
+		return "main/indexMobile";
+	}
+	
 	@RequestMapping(value = "/eng", method = RequestMethod.GET)
 	public String engHome(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 		logger.info("engMain get");
