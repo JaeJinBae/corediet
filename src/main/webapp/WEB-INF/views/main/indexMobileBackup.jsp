@@ -699,7 +699,7 @@
 .s06_videoWrap2{
 	position: relative;
 	opacity: 1;
-	width: 100%;
+	width: 1110px;
 	left: 0px;
 	top: 0;
 	display: block;
@@ -718,7 +718,7 @@
 	clear: both;
 }
 .s06_v_verticanWrap{
-	width: 50%;
+	width: 185px;
 	height: auto;
 	display:block;
 	float: left;
