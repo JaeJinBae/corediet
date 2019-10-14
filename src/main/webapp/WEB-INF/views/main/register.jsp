@@ -97,6 +97,10 @@ $(function(){
 							</script>
 						</td>
 					</tr>
+					<tr>
+						<th>첨부</th>
+						<td><input type="file"></td>
+					</tr>
 				</table>
 				<div class="btnWrap">
 					<input type="submit" value="저장">
