@@ -130,8 +130,34 @@ public class HomeController {
 		return "main/indexMobileEng";
 	}
 	
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String login(){
+		
+		
+		return "main/login";
+	}
+	
+	@RequestMapping(value="/chkUser", method=RequestMethod.POST)
+	public ResponseEntity<String> chkUser(@RequestBody Map<String, String> info){
+		ResponseEntity<String> entity = null;
+		
+		if(info.get("id").equals("admin") && info.get("pw").equals("corediet7926554")){
+			entity = new ResponseEntity<String>("ok", HttpStatus.OK);
+		}else{
+			entity = new ResponseEntity<String>("no", HttpStatus.OK);
+		}
+		
+		return entity;
+	}
+	
+	@RequestMapping(value="/register", method=RequestMethod.GET)
+	public String register(){
+		
+		return "main/register";
+	}
+	
 	@RequestMapping(value = "/search_blog_get", method = RequestMethod.GET)
-	public ResponseEntity<Map<String, Object>> register() {// @RequestBody이거 쓰면 무조건 json형식 사용할 때 씀
+	public ResponseEntity<Map<String, Object>> search_blog_get() {// @RequestBody이거 쓰면 무조건 json형식 사용할 때 씀
 		
 		ResponseEntity<Map<String, Object>> entity = null;
 		try {

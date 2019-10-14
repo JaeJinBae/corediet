@@ -41,6 +41,7 @@ $(function(){
 	
 });
 </script>
+<input type="hidden" id="se_id" value="${sessionScope.id}">
 <div class="headerWrap">
 	<div class="logoWrap">
 		<a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/resources/images/logo.png"></a>

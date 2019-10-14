@@ -1568,6 +1568,14 @@ $(function(){
 		var info = {page:page, perPageNum:perPageNum, searchType:searchType, keyword:keyword};
 		draw_notice(info);
 	});
+	
+	$(".noticeBtnWrap").click(function(){
+		var state = $("#se_id").val();
+		if(state.length < 4){
+			alert("글 작성 권한이 없습니다.");
+			location.href="${pageContext.request.contextPath}/login";
+		}
+	});
 }); 
 </script>
 </head>
