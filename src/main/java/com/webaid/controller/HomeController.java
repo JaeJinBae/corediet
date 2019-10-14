@@ -9,11 +9,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mobile.device.Device;
+import org.springframework.mobile.device.DeviceUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -38,7 +42,7 @@ public class HomeController {
 	private NoticeService nService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+	public String home(HttpServletRequest req, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 		logger.info("main get");
 		
 		List<NoticeVO> list = nService.listSearch(cri);
@@ -51,7 +55,28 @@ public class HomeController {
 		model.addAttribute("list", list);
 		model.addAttribute("pageMaker", pageMaker);
 		
-		return "main/index";
+		Device device=DeviceUtils.getCurrentDevice(req);
+		String deviceType="unknown";
+		
+		if(device == null){
+			deviceType="unknown";
+			logger.info("디바이스타입= "+deviceType);
+			
+			return "main/index";
+		}
+		if(device.isMobile()){
+			deviceType="mobile";
+			logger.info("디바이스타입= "+deviceType);			
+			return "main/indexMobile";
+		}else if(device.isTablet()){
+			deviceType="mobile";
+			logger.info("디바이스타입= "+deviceType);			
+			return "main/indexMobile";
+		}else{
+			deviceType="normal";
+			logger.info("디바이스타입= "+deviceType);
+			return "main/index";
+		}
 	}
 	
 	@RequestMapping(value = "/eng", method = RequestMethod.GET)

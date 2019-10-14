@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Core Diet</title>
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/favi.ico">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/slick/slick-theme.css"/>
@@ -17,7 +18,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/slick/slick.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0150774a1cc2645b7f79f50845ad5e82"></script>
-
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 .allWrap{
@@ -78,6 +78,14 @@
 	top:0;
 	background: rgba(0, 0, 0, 0.9);
 	z-index: 99;
+}
+.flag{
+	position: absolute;
+    top: 34px;
+    right: 20px;
+}
+.flag > a > img{
+	width: 30px;
 }
 .topBtn{
 	display: none;
@@ -168,15 +176,35 @@
 	color: #555;
 }
 .s02_container1{
-	
+	margin-bottom: 70px;
+	padding-top: 80px;
 }
-.s02_container1 > img{
-	width: 100%;
+.s02_container1 > h3{
+	margin-bottom: 30px;
+	line-height: 1;
+	font-size: 30px;
+	color: #151826;
+	text-align: center;
+	font-family: sans-serif;
+}
+.s02_container1 > p{
+	text-align: center;
+	margin-bottom: 14px;
+	font-family: sans-serif;
+	font-size: 16px;
+	color: #555555;
 }
 .s02_container2{
 	text-align: center;
 }
 .s02_container2 > img{
+	width: 70%;
+	margin-bottom: 20px;
+}
+.s02_container3{
+	text-align: center;
+}
+.s02_container3 > img{
 	width: 70%;
 }
 .section03{
@@ -1340,10 +1368,10 @@ function draw_blogSection(){
 
 function get_youtubeInfo(){
 	var dt;
-	//AIzaSyBw57piloo_YIBIU8t31eHwfOu-Alw4aUI
-	//AIzaSyBw57piloo_YIBIU8t31eHwfOu-Alw4aUI
+
+	//AIzaSyDQAWVlMmJgUdvvOzRNLKgm4Rx8rw8YbFA
 	//url매개변수주소 : https://developers.google.com/youtube/v3/docs/search/list?hl=ko
-	var url1 = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyBw57piloo_YIBIU8t31eHwfOu-Alw4aUI&q=딥롤러&part=snippet&maxResults=10&type=video";
+	var url1 = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDQAWVlMmJgUdvvOzRNLKgm4Rx8rw8YbFA&q=딥롤러&part=snippet&maxResults=10&type=video";
 	$.ajax({
 		url:encodeURI(url1),
 		type:"get",
@@ -1395,9 +1423,9 @@ function draw_notice(info){
 	var json = get_notice(info);
 	var str = "";
 	var page = 0;
-	str = "<tr><th>순번</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회</th></tr>";
+	str = "<tr><th>no</th><th>title</th><th>writer</th><th>date</th><th>cnt</th></tr>";
 	if($(json.list).length == 0){
-		str += "<tr><td colspan='5'>등록된 게시물이 없습니다.</td></tr>";
+		str += "<tr><td colspan='5'>There is no content.</td></tr>";
 	}else{
 		page = json.pageMaker.cri.page;
 		$(json.list).each(function(){
@@ -1549,13 +1577,17 @@ $(function(){
 			<div class="popup_contentWrap">
 				<div class="popup_content">
 					<button>X CLOSE</button>
-					<img src="${pageContext.request.contextPath}/resources/images/deep_detail1.png">
-					<img src="${pageContext.request.contextPath}/resources/images/deep_detail2.png">
+					<img src="${pageContext.request.contextPath}/resources/engImg/deep_detail1eng.jpg">
+					<img src="${pageContext.request.contextPath}/resources/engImg/deep_detail2eng.jpg">
 				</div><!-- popup_content end -->
 			</div><!-- popup_contentWrap end -->
 		</div><!-- popupWrap end -->
 		<div class="header">
 			<jsp:include page="../include/header.jsp"></jsp:include>
+			<div class="flag">
+				<a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/resources/images/icon_kor.jpg"></a>
+				<a href="${pageContext.request.contextPath}/eng"><img src="${pageContext.request.contextPath}/resources/images/icon_usa.jpg"></a>
+			</div>
 		</div>
 		<a class="topBtn" href="">↑</a>
 		<div class="sectionWrap">
@@ -1566,11 +1598,15 @@ $(function(){
 			</div><!-- section01 end -->
 			<div class="section02 section" id="section02">
 				<div class="s02_container1">
-					<img src="${pageContext.request.contextPath}/resources/engImg/engSection02_img1.jpg">
+					<h3>ABOUT</h3>
+					<p>About CoreDiet brands.</p>
 				</div>
 				<div class="s02_container2">
-					<img src="${pageContext.request.contextPath}/resources/engImg/engSection02_img2.jpg">
+					<img src="${pageContext.request.contextPath}/resources/engImg/engSection02_img1.jpg">
 				</div><!-- s02_container2 end -->
+				<div class="s02_container3">
+					<img src="${pageContext.request.contextPath}/resources/engImg/engSection02_img2.jpg">
+				</div><!-- s02_container3 end -->
 			</div><!-- section02 end -->
 			<div class="section03 section" id="section03">
 				<div class="s03_container1 container">
@@ -2088,7 +2124,7 @@ $(function(){
 					</div>
 					<div class="s05_con_bottom">
 						<img class="s05_con_bottom_img1" src="${pageContext.request.contextPath}/resources/images/section05_img01.png" alt="딥롤러">
-						<p class="s05_con_bottom_p1">awaken the magnetic force of the spine<br>in good health KANUDA</p>
+						<p class="s05_con_bottom_p1">Awaken the magnetic force of the spine<br>in good health KANUDA</p>
 						<img class="s05_con_bottom_img2" src="${pageContext.request.contextPath}/resources/images/section05_img02.jpg" alt="딥롤러 사용 구조도 이미지">
 						<p class="s05_con_bottom_p2">Effective solution of spinal health Deep Roller</p>
 						<a href="https://smartstore.naver.com/corediet/products/3537520532" target="_blank"><i class=""></i>> Buy Deep Roller</a>

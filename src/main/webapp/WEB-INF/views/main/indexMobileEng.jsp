@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Core Diet</title>
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/favi.ico">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/slick/slick-theme.css"/>
@@ -26,28 +27,26 @@
 }
 .popupWrap{
 	display: none;
-	position: fixed;
-	top:0;
+	position: absolute;
+	top: -90px;
 	left: 0;
 	z-index: 999;
 	width: 100%;
 	height: 100%;
 }
 .popupWrap > .popup_bg{
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.9);
 }
 .popupWrap > .popup_contentWrap{
-	position: fixed;
-	top: 88px;
-	left: 50%;
-	margin-left: -400px;
-	width: 900px;
-	height: 87%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
 	background: #fff;
 	overflow: scroll;
 }
@@ -56,11 +55,12 @@
 	text-align: center;
 	padding-top: 75px;
 	position: relative;
+	overflow: scroll;
 }
 .popupWrap > .popup_contentWrap > .popup_content > button{
 	position: fixed;
-	top: 12%;
-	right: 45%;
+	top: 20px;
+	right: 40%;
 	background: rgba(0,0,0,0.4);
 	font-size: 15px;
 	padding: 7px 12px;
@@ -68,8 +68,8 @@
 	font-family: sans-serif;
 	letter-spacing: 0.5px;
 }
-.popupWrap > .popup_content > img{
-	/* width: 100%; */
+.popup_content > img{
+	width: 95%;
 }
 
 .header{
@@ -122,7 +122,7 @@
 }
 .section01{
 	width: 100%;
-	background: url("${pageContext.request.contextPath}/resources/images/section01_bg.jpg") no-repeat;
+	background: url("${pageContext.request.contextPath}/resources/engImg/mSection01_bg0eng.jpg") no-repeat;
 	background-size: contain;
 	background-position: center;
 	position: relative;
@@ -191,72 +191,15 @@
 .s02_container2{
 
 }
-.s02_container2 > h2{
-	text-align: center;
-	font-size: 40px;
-	color: #3398dc;
-	margin-bottom: 30px;
-	line-height: 1.4;
-	font-family: sans-serif; 
-}
-.s02_container2 > p.s02_p1{
-	margin-bottom: 50px;
-	text-align: center; 
+.s02_container2 > img{
 	width: 100%;
-}
-.s02_container2 > p > img{
-	width: 100%;
-}
-.s02_container2 > h3{
-	line-height: 1.8;
-	color: #333;
-	margin-bottom: 30px;
-	font-size: 22px;
-	text-align: center;
-	font-family: sans-serif;
-}
-.g-color-blue{
-	color: #3398dc;
-}
-.s02_container2 > p.s02_p2{
-	font-size: 20px;
-	text-align: center;
-	font-family: sans-serif;
-	
 }
 .s02_container3{
-	padding-top: 100px;
+	padding-top: 20px;
 	
 }
-.s02_container3 > h2{
-	text-align: center;
-	font-size: 40px;
-	color: #3398dc;
-	margin-bottom: 30px;
-	line-height: 1.4;
-	font-family: sans-serif;
-}
-.s02_container3 > p.s02_p3{
-	margin-bottom: 50px;
-	text-align: center;
+.s02_container3 > img{
 	width: 100%;
-}
-.s02_container3 > p.s02_p3 > img{
-	width: 100%;
-}
-.s02_container3 > h4{
-	line-height: 1.8;
-	color: #333;
-	margin-bottom: 30px;
-	font-size: 22px;
-	font-family: sans-serif;
-	text-align: center;
-}
-.s02_container3 > p.s02_p4{
-	font-size: 20px;
-	text-align: center;
-	line-height: 1.8;
-	font-family: sans-serif;
 }
 .section03{
 	padding-bottom: 170px;
@@ -322,7 +265,7 @@
 	width: 100%;
 	position: relative;
 }
-.s03_container3 > .s03_tab1:before{
+/* .s03_container3 > .s03_tab1:before{
 	background: #f1f1f1;
 	content:"";
 	position: absolute;
@@ -331,13 +274,13 @@
 	left: 18%;
 	width: 1px;
 	height: 100%;
-}
+} */
 .s03_container3 > .s03_tab2{
 	display: none;
 	width: 100%;
 	position: relative;
 }
-.s03_container3 > .s03_tab2:before{
+/* .s03_container3 > .s03_tab2:before{
 	background: #f1f1f1;
 	content:"";
 	position: absolute;
@@ -346,7 +289,7 @@
 	left: 18%;
 	width: 1px;
 	height: 100%;
-}
+} */
 .cw{
 	width: 100%;
 	margin-bottom: 50px;
@@ -1011,7 +954,6 @@
 }
 .s09_sliderWrap{
 	width: 100%;
-	padding: 0 50px;
 }
 .s09_slides{
 	
@@ -1427,9 +1369,9 @@ function draw_notice(info){
 	var json = get_notice(info);
 	var str = "";
 	var page = 0;
-	str = "<tr><th>제목</th><th>작성자</th></tr>";
+	str = "<tr><th>title</th><th>writer</th></tr>";
 	if($(json.list).length == 0){
-		str += "<tr><td colspan='2'>등록된 게시물이 없습니다.</td></tr>";
+		str += "<tr><td colspan='2'>There is no content.</td></tr>";
 	}else{
 		page = json.pageMaker.cri.page;
 		$(json.list).each(function(){
@@ -1463,6 +1405,11 @@ function draw_notice(info){
 $(function(){
 	$("#openPopupBtn").click(function(e){
 		e.preventDefault();
+		$('.line').removeClass('init');
+		$('#line-top').toggleClass('line-top').toggleClass('top-reverse');
+		$('#line-mid').toggleClass('line-mid').toggleClass('mid-reverse');
+		$('#line-bot').toggleClass('line-bot').toggleClass('bot-reverse');
+		$(".menu_nav_wrap").slideToggle("fast");
 		$(".popupWrap").css("display", "block");
 	});
 	
@@ -1559,8 +1506,8 @@ $(function(){
 			<div class="popup_contentWrap">
 				<div class="popup_content">
 					<button>X CLOSE</button>
-					<img src="${pageContext.request.contextPath}/resources/images/deep_detail1.png">
-					<img src="${pageContext.request.contextPath}/resources/images/deep_detail2.png">
+					<img src="${pageContext.request.contextPath}/resources/engImg/deep_detail1eng.jpg">
+					<img src="${pageContext.request.contextPath}/resources/engImg/deep_detail2eng.jpg">
 				</div><!-- popup_content end -->
 			</div><!-- popup_contentWrap end -->
 		</div><!-- popupWrap end -->
@@ -1580,20 +1527,11 @@ $(function(){
 					<p>About CoreDiet brands.</p>
 				</div>
 				<div class="s02_container2 container">
-					<h2>About The CoreDiet</h2>
-					<p class="s02_p1"><img src="${pageContext.request.contextPath}/resources/images/section02_img.png"></p>
-					<h3>
-						코어다이어트 브랜드는 건강생활문화 선도하는 <span class="g-color-blue">주식회사 메드사피엔스</span>의 브랜드로써<br>건강과 행복, 아름다움을 만들어가기 위한 노력을 하고 있습니다.
-					</h3>
-					<p class="s02_p2">
-						고객의 다이어트와 척추 건강 등 고객 건강의 가치를 제공하기 위하여 운동기, 자극기, 건강 기능성 식품 등 <br class="mobile_blind">다이어트 토탈 헬스케어 브랜드입니다.
-					</p>
+					<img src="${pageContext.request.contextPath}/resources/engImg/mSection02_img1eng.jpg">
+					<img src="${pageContext.request.contextPath}/resources/engImg/mSection02_img2eng.jpg">
 				</div><!-- s02_container2 end -->
 				<div class="s02_container3 container">
-					<h2>COREDIET DEEP ROLLER</h2>
-					<p class="s02_p3"><img src="${pageContext.request.contextPath}/resources/images/section02_img2.png"></p>
-					<h4>척추 전문 도수 치료사가 개발한 폼롤러</h4>
-					<p class="s02_p4">코어다이어트 딥롤러는 15년 이상의 도수치료 임상 경력을 가진 물리치료사가 가정에서 또는 <br class="mobile_blind">운동센터나 물리치료실에서 효과적인 폼롤러 운동을 통해 척추와 근막을 관리할 수 있도록 개발된 제품입니다.</p>
+					<img src="${pageContext.request.contextPath}/resources/engImg/mSection02_img3eng.jpg">
 				</div><!-- s02_container3 end -->
 			</div><!-- section02 end -->
 			<div class="section03 section" id="section03">
@@ -2052,7 +1990,7 @@ $(function(){
 					</div>
 					<div class="s05_con_bottom">
 						<img class="s05_con_bottom_img1" src="${pageContext.request.contextPath}/resources/images/section05_img01.png" alt="딥롤러">
-						<p class="s05_con_bottom_p1">awaken the magnetic force of the spine<br>in good health KANUDA</p>
+						<p class="s05_con_bottom_p1">Awaken the magnetic force of the spine<br>in good health KANUDA</p>
 						<img class="s05_con_bottom_img2" src="${pageContext.request.contextPath}/resources/images/section05_img02.jpg" alt="딥롤러 사용 구조도 이미지">
 						<p class="s05_con_bottom_p2">Effective solution of spinal health Deep Roller</p>
 						<a href="https://smartstore.naver.com/corediet/products/3537520532" target="_blank"><i class=""></i>> 딥롤러 구매하기</a>

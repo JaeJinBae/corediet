@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Core Diet</title>
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/favi.ico">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/slick/slick-theme.css"/>
@@ -78,6 +79,14 @@
 	top:0;
 	background: rgba(0, 0, 0, 0.9);
 	z-index: 99;
+}
+.flag{
+	position: absolute;
+    top: 34px;
+    right: 20px;
+}
+.flag > a > img{
+	width: 30px;
 }
 .topBtn{
 	display: none;
@@ -168,15 +177,35 @@
 	color: #555;
 }
 .s02_container1{
-	
+	margin-bottom: 70px;
+	padding-top: 80px;
 }
-.s02_container1 > img{
-	width: 100%;
+.s02_container1 > h3{
+	margin-bottom: 30px;
+	line-height: 1;
+	font-size: 30px;
+	color: #151826;
+	text-align: center;
+	font-family: sans-serif;
+}
+.s02_container1 > p{
+	text-align: center;
+	margin-bottom: 14px;
+	font-family: sans-serif;
+	font-size: 16px;
+	color: #555555;
 }
 .s02_container2{
 	text-align: center;
 }
 .s02_container2 > img{
+	width: 70%;
+	margin-bottom: 20px;
+}
+.s02_container3{
+	text-align: center;
+}
+.s02_container3 > img{
 	width: 70%;
 }
 .section03{
@@ -1556,6 +1585,10 @@ $(function(){
 		</div><!-- popupWrap end -->
 		<div class="header">
 			<jsp:include page="../include/header.jsp"></jsp:include>
+			<div class="flag">
+				<a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/resources/images/icon_kor.jpg"></a>
+				<a href="${pageContext.request.contextPath}/eng"><img src="${pageContext.request.contextPath}/resources/images/icon_usa.jpg"></a>
+			</div>
 		</div>
 		<a class="topBtn" href="">↑</a>
 		<div class="sectionWrap">
@@ -1566,11 +1599,15 @@ $(function(){
 			</div><!-- section01 end -->
 			<div class="section02 section" id="section02">
 				<div class="s02_container1">
-					<img src="${pageContext.request.contextPath}/resources/images/section02_img1.jpg">
+					<h3>ABOUT</h3>
+					<p>About CoreDiet brands.</p>
 				</div>
 				<div class="s02_container2">
+					<img src="${pageContext.request.contextPath}/resources/images/section02_img1.jpg">
+				</div>
+				<div class="s02_container3">
 					<img src="${pageContext.request.contextPath}/resources/images/section02_img2.jpg">
-				</div><!-- s02_container2 end -->
+				</div><!-- s02_container3 end -->
 			</div><!-- section02 end -->
 			<div class="section03 section" id="section03">
 				<div class="s03_container1 container">

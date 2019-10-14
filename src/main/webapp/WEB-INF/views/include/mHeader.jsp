@@ -13,6 +13,14 @@
 .logo > img{
 	padding: 13px 0px;
 }
+.flag{
+	position: absolute;
+    top: 34px;
+    right: 90px;
+}
+.flag > a > img{
+	width: 30px;
+}
 #line-wrapper {
   cursor: pointer;
   width: 56px;
@@ -197,6 +205,10 @@ $(function(){
 		<a href="${pageContext.request.contextPath}/m" class="logo">
 			<img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="CoreDiet">
 		</a><!-- End Logo -->
+		<div class="flag">
+			<a href="${pageContext.request.contextPath}/m"><img src="${pageContext.request.contextPath}/resources/images/icon_kor.jpg"></a>
+			<a href="${pageContext.request.contextPath}/m/eng"><img src="${pageContext.request.contextPath}/resources/images/icon_usa.jpg"></a>
+		</div>
 		
 		<!-- Responsive Toggle Button -->
 		<div id="line-wrapper">
