@@ -253,13 +253,13 @@ public class HomeController {
 		model.addAttribute("item", vo);
 		model.addAttribute("pageMaker", pageMaker);
 		
-		return "main/read";
+		return "sub/read";
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String login(){
 		
-		return "main/login";
+		return "sub/login";
 	}
 	
 	@RequestMapping(value="/chkUser", method=RequestMethod.POST)
@@ -279,7 +279,7 @@ public class HomeController {
 	@RequestMapping(value="/register", method=RequestMethod.GET)
 	public String register(){
 		
-		return "main/register";
+		return "sub/register";
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -344,7 +344,7 @@ public class HomeController {
 		model.addAttribute("item", vo);
 		model.addAttribute("pageMaker", pageMaker);
 		
-		return "main/update";
+		return "sub/update";
 	}
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
