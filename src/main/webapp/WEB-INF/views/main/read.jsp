@@ -30,31 +30,61 @@
 .flag > a > img{
 	width: 30px;
 }
-.formWrap{
-	width: 800px;
+.contentWrap{
+	width: 100%;
+	margin-top: 150px;
+}
+.inner{
+	width: 80%;
+	min-width: 800px;
 	margin: 0 auto;
-	margin-top: 140px;
 }
-#f1{
+.inner > h2{
+	font-size: 40px;
+	margin-bottom: 20px;
+}
+.smallInfo{
 	width: 100%;
+	padding: 20px 0;
+	border-bottom: 1px solid lightgray;
 }
-#f1 > table{
-	width: 100%;
-}
-#f1 > table th{
-	width: 80px;
+.smallInfo > span{
 	font-size: 15px;
+}
+.content{
+	width: 100%;
+	padding: 40px 15px;
+	font-size: 15px;
+}
+.uploadWrap{
+	width: 100%;
 	border: 1px solid lightgray;
 }
-#f1 > table td{
-	font-size: 15px;
-	border: 1px solid lightgray;
+.uploadWrap > p{
+	text-align: right;
+	background: #efefef;
+	font-size: 30px;
+	padding: 15px;
 }
-#f1 > table td > input{
+.uploadWrap > div{
 	width: 100%;
-	height: 35px;
-	font-size: 15px;
+	padding: 10px;
 }
+.uploadWrap > div > a{
+	font-size: 18px;
+	vertical-align: middle;
+	line-height: 25px;
+	color: #3398dc;
+	font-weight: bold;
+}
+.uploadWrap > div > a > span{
+	text-decoration: underline;
+}
+.uploadWrap > div > a > img{
+	width: 25px;
+	margin-right: 15px;
+}
+
 .btnWrap{
 	width: 100%;
 	text-align: right;
@@ -100,6 +130,18 @@ $(function(){
 	nd = nd>9?''+nd:'0'+nd;
 	
 	$("input[name='regdate']").val(ny+"-"+nm+"-"+nd);
+	
+	$(document).on("click", "#downBtn", function(e){
+		e.preventDefault();
+		var href = $(this).prop("href");
+		var f_origin = $("input[name='upload_origin']").val();
+		var fileName = encodeURIComponent(f_origin);
+		var f_stored = $("input[name='upload_stored']").val();
+		var downName =  encodeURIComponent(f_stored);
+		
+		href += "?fileName="+fileName+"&downName="+downName;
+		location.href= href;
+	});
 });
 </script>
 </head>
@@ -112,38 +154,43 @@ $(function(){
 				<a href="${pageContext.request.contextPath}/eng"><img src="${pageContext.request.contextPath}/resources/images/icon_usa.jpg"></a>
 			</div>
 		</div>
-		<div class="formWrap">
-			<form id="f1" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/register">
-				<input type="hidden" name="regdate">
-				<table>
-					<tr>
-						<th>제목</th>
-						<td><input type="text" name="title"></td>
-					</tr>
-					<tr>
-						<th>작성자</th>
-						<td><input type="text" name="writer" value="관리자"></td>
-					</tr>
-					<tr>
-						<th>내용</th>
-						<td>
-							<textarea id="editor1" name="content"><br></textarea>
-							<script>
-								CKEDITOR.replace('content',{filebrowserUploadUrl:"/imgUpload",height:500});
-							</script>
-						</td>
-					</tr>
-					<tr>
-						<th>첨부</th>
-						<td><input type="file"></td>
-					</tr>
-				</table>
+		<div class="contentWrap">
+			<div class="inner">
+				<h2>${item.title}</h2>
+				<div class="smallInfo">
+					<span>작성자: <strong>${item.writer}</strong></span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+					<span>조회: <strong>${item.cnt}</strong></span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+					<span>등록일: <strong>${item.regdate}</strong></span>
+				</div>
+				<div class="content">
+					${item.content}
+				</div>
+				<c:choose>
+					<c:when test="${item.upload_origin == ''}">
+					</c:when>
+					<c:otherwise>
+						<div class="uploadWrap">
+							<p>첨부파일</p>
+							<div>
+								<a id="downBtn" href="${pageContext.request.contextPath}/filedown"><img src="${pageContext.request.contextPath}/resources/icon/download.png"><span>${item.upload_origin}</span></a>
+								
+								<input type="hidden" name="upload_origin" value="${item.upload_origin}">
+								<input type="hidden" name="upload_stored" value="${item.upload_stored}">
+							</div>
+						</div>
+					</c:otherwise>
+				</c:choose>
+				
 				<div class="btnWrap">
-					<input type="submit" value="저장">
+					<c:choose>
+						<c:when test="${sessionScope.id == 'admin'}">
+							<p style="background:green;"><a href="${pageContext.request.contextPath}/update${pageMaker.makeSearch(pageMaker.cri.page)}&no=${item.no}">수정</a></p>
+						</c:when>
+					</c:choose>
 					<p><a href="${pageContext.request.contextPath}/">목록</a></p>
 				</div>
-			</form>
-		</div>
+			</div><!-- inner -->
+		</div><!-- contentWrap -->
 	</div>
 </body>
 </html>

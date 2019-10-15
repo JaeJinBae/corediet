@@ -12,24 +12,12 @@
 		select * from notice where no=#{no}
 	</select>
 	
-	<select id="selectBefore" resultType="NoticeVO">
-		select * from notice where no=(select min(no) from notice where no<![CDATA[>]]>#{no}) and top_state='n'
-	</select>
-	
-	<select id="selectAfter" resultType="NoticeVO">
-		select * from notice where no=(select max(no) from notice where no<![CDATA[<]]>#{no}) and top_state='n'
-	</select>
-	
-	<select id="selectTopNotice" resultType="NoticeVO">
-		select * from notice where top_state='y' order by no desc;
-	</select>
-	
 	<insert id="insert">
-		insert into notice values(0, #{title}, #{content}, #{writer}, #{regdate}, 0, #{top_state})
+		insert into notice values(0, #{writer}, #{regdate}, 0, #{title}, #{content}, #{upload_origin}, #{upload_stored})
 	</insert>
 	
 	<update id="update">
-		update notice set title=#{title}, writer=#{writer}, content=#{content}, #{top_state} where no=#{no}
+		update notice set title=#{title}, writer=#{writer}, content=#{content}, #{upload_origin}, #{upload_stored} where no=#{no}
 	</update>
 	
 	<update id="updateCnt">
@@ -41,7 +29,7 @@
 	</delete>
 	
 	<select id="listSearch" resultType="NoticeVO">
-		select * from notice where top_state='n' <include refid="search"></include> order by no desc, regdate desc limit #{pageStart},#{perPageNum}  
+		select * from notice where no>0 <include refid="search"></include> order by no desc, regdate desc limit #{pageStart},#{perPageNum}  
 	</select>
 	
 	<sql id="search">
@@ -57,7 +45,7 @@
 	</sql>
 	
 	<select id="listSearchCount" resultType="int">
-		select count(no) from notice where top_state='n' <include refid="search"></include>
+		select count(no) from notice where no>0 <include refid="search"></include>
 	</select>
 	
 </mapper>

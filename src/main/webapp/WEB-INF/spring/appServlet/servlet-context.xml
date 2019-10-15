@@ -23,6 +23,11 @@
 	
 	<context:component-scan base-package="com.webaid.controller" />
 	
+	<!-- 파일 업로드 할 때 필요 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760"></beans:property>
+	</beans:bean>
+	
 	<beans:bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
 	<resources mapping="/robots.txt" location="/robots.txt" order="0"/>
 	<resources mapping="/logo.png" location="/logo.png" order="0"/>

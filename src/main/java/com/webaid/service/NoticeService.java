@@ -8,9 +8,6 @@ import com.webaid.domain.SearchCriteria;
 public interface NoticeService {
 	public List<NoticeVO> selectAll();
 	public NoticeVO selectOne(int no);
-	public NoticeVO selectBefore(int no);
-	public NoticeVO selectAfter(int no);
-	public List<NoticeVO> selectTopNotice();
 	public void insert(NoticeVO vo);
 	public void update(NoticeVO vo);
 	public void updateCnt(int no);

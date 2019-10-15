@@ -26,21 +26,6 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public NoticeVO selectBefore(int no) {
-		return dao.selectBefore(no);
-	}
-
-	@Override
-	public NoticeVO selectAfter(int no) {
-		return dao.selectAfter(no);
-	}
-
-	@Override
-	public List<NoticeVO> selectTopNotice() {
-		return dao.selectTopNotice();
-	}
-
-	@Override
 	public void insert(NoticeVO vo) {
 		dao.insert(vo);
 	}

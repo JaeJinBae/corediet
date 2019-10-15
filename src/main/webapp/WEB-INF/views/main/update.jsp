@@ -55,6 +55,10 @@
 	height: 35px;
 	font-size: 15px;
 }
+#downBtn > img{
+	width: 25px;
+	margin-right: 15px;
+}
 .btnWrap{
 	width: 100%;
 	text-align: right;
@@ -100,6 +104,18 @@ $(function(){
 	nd = nd>9?''+nd:'0'+nd;
 	
 	$("input[name='regdate']").val(ny+"-"+nm+"-"+nd);
+	
+	$(document).on("click", "#downBtn", function(e){
+		e.preventDefault();
+		var href = $(this).prop("href");
+		var f_origin = $("input[name='upload_origin']").val();
+		var fileName = encodeURIComponent(f_origin);
+		var f_stored = $("input[name='upload_stored']").val();
+		var downName =  encodeURIComponent(f_stored);
+		
+		href += "?fileName="+fileName+"&downName="+downName;
+		location.href= href;
+	});
 });
 </script>
 </head>
@@ -118,16 +134,16 @@ $(function(){
 				<table>
 					<tr>
 						<th>제목</th>
-						<td><input type="text" name="title"></td>
+						<td><input type="text" name="title" value="${item.title}"></td>
 					</tr>
 					<tr>
 						<th>작성자</th>
-						<td><input type="text" name="writer" value="관리자"></td>
+						<td><input type="text" name="writer" value="${item.writer}"></td>
 					</tr>
 					<tr>
 						<th>내용</th>
 						<td>
-							<textarea id="editor1" name="content"><br></textarea>
+							<textarea id="editor1" name="content">${item.content}</textarea>
 							<script>
 								CKEDITOR.replace('content',{filebrowserUploadUrl:"/imgUpload",height:500});
 							</script>
@@ -135,7 +151,22 @@ $(function(){
 					</tr>
 					<tr>
 						<th>첨부</th>
-						<td><input type="file"></td>
+						<td>
+							<input type="hidden" id="uploadState" name="uploadState" value="x">
+							<c:choose>
+								<c:when test="${item.upload_origin == ''}">
+									<div><input type="file" name="upload"></div>
+								</c:when>
+								<c:otherwise>
+									<div>
+										<a id="downBtn" href="${pageContext.request.contextPath}/filedown"><img src="${pageContext.request.contextPath}/resources/icon/download.png">${item.upload_origin}</a>
+										<img id="upload" src="${pageContext.request.contextPath}/resources/icon/icon_x.png" class="vimg cursor">
+										<input type="hidden" name="upload_origin" value="${item.upload_origin}">
+										<input type="hidden" name="upload_stored" value="${item.upload_stored}">
+									</div>
+								</c:otherwise>
+							</c:choose>
+						</td>
 					</tr>
 				</table>
 				<div class="btnWrap">

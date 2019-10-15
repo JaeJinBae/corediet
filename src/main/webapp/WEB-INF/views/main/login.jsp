@@ -67,6 +67,17 @@
 }
 </style>
 <script>
+function enterkey() {
+    if (window.event.keyCode == 13) {
+    	var id = $("input[name='id']").val();
+		var pw = $("input[name='pw']").val();
+		var info = {id:id, pw:pw};
+		var res = chkUser(info);
+		if(res == "no"){
+			alert("아이디 또는 비밀번호가 잘못되었습니다.");
+		}
+    }
+}
 
 $(function(){
 	$("#loginBtn").click(function(){
@@ -87,7 +98,7 @@ $(function(){
 			<h2>로그인</h2>
 			<ul>
 				<li><input type="text" name="id" placeholder="아이디"></li>
-				<li><input type="password" name="pw" placeholder="비밀번호"></li>
+				<li><input type="password" name="pw" placeholder="비밀번호" onkeyup="enterkey();"></li>
 			</ul>
 			<div class="btnWrap">
 				<p id="loginBtn">로그인</p>
