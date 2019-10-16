@@ -1567,6 +1567,13 @@ $(function(){
 		var info = {page:page, perPageNum:perPageNum, searchType:searchType, keyword:keyword};
 		draw_notice(info);
 	});
+	
+	$(".noticeBtnWrap").click(function(){
+		var state = $("#se_id").val();
+		if(state.length < 4){
+			alert("You do not have permission.");
+		}
+	});
 }); 
 </script>
 </head>

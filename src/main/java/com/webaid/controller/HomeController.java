@@ -256,6 +256,23 @@ public class HomeController {
 		return "sub/read";
 	}
 	
+	@RequestMapping(value = "/mNoticeRead", method = RequestMethod.GET)
+	public String mNoticeRead(int no, @ModelAttribute("cri") SearchCriteria cri, Model model, HttpServletRequest req) throws Exception {
+		logger.info("read get");
+		
+		NoticeVO vo = nService.selectOne(no);
+
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.makeSearch(cri.getPage());
+		pageMaker.setTotalCount(nService.listSearchCount(cri));
+
+		model.addAttribute("item", vo);
+		model.addAttribute("pageMaker", pageMaker);
+		
+		return "sub/mRead";
+	}
+	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String login(){
 		

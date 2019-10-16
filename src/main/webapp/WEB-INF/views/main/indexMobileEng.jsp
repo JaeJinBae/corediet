@@ -1375,7 +1375,7 @@ function draw_notice(info){
 	}else{
 		page = json.pageMaker.cri.page;
 		$(json.list).each(function(){
-			str += "<tr><td><a href='${pageContext.request.contextPath}/noticeRead?page="+page+"&perPageNum=10&searchType&keyword&no="+this.no+"'>"+this.title+"</a></td>"
+			str += "<tr><td><a href='${pageContext.request.contextPath}/mNoticeRead?page="+page+"&perPageNum=10&searchType&keyword&no="+this.no+"'>"+this.title+"</a></td>"
 				+ "<td>"+this.writer+"</td></tr>";
 		})
 	}

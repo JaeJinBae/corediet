@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ckeditorFull/ckeditor.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 .allWrap{
 	width: 100%;
@@ -35,8 +36,7 @@
 	margin-top: 150px;
 }
 .inner{
-	width: 80%;
-	min-width: 800px;
+	width: 95%; 
 	margin: 0 auto;
 }
 .inner > h2{
@@ -151,7 +151,7 @@ $(function(){
 <body>
 	<div class="allWrap">
 		<div class="header">
-			<jsp:include page="../include/header.jsp"></jsp:include>
+			<jsp:include page="../include/mHeader.jsp"></jsp:include>
 			<div class="flag">
 				<a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/resources/images/icon_kor.jpg"></a>
 				<a href="${pageContext.request.contextPath}/eng"><img src="${pageContext.request.contextPath}/resources/images/icon_usa.jpg"></a>
