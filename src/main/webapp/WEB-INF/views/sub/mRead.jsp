@@ -153,8 +153,8 @@ $(function(){
 		<div class="header">
 			<jsp:include page="../include/mHeader.jsp"></jsp:include>
 			<div class="flag">
-				<a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/resources/images/icon_kor.jpg"></a>
-				<a href="${pageContext.request.contextPath}/eng"><img src="${pageContext.request.contextPath}/resources/images/icon_usa.jpg"></a>
+				<a href="${pageContext.request.contextPath}/m"><img src="${pageContext.request.contextPath}/resources/images/icon_kor.jpg"></a>
+				<a href="${pageContext.request.contextPath}/m/eng"><img src="${pageContext.request.contextPath}/resources/images/icon_usa.jpg"></a>
 			</div>
 		</div>
 		<div class="contentWrap">
