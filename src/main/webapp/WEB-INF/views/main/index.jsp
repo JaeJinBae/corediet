@@ -7,7 +7,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Core Diet</title>
+<title>코어다이어트 딥롤러</title>
+<meta name="naver-site-verification" content="d53046e7ecfe442e3b973c1baeb37ec7fc75031d"/>
+<meta name="description" content="척추 전문가가 개발한 인체의 건강을 아름답게 가꾸는 기능성 폼롤러 코어다이어트 딥롤러">
+<meta property="og:type" content="website">
+<meta property="og:title" content="코어다이어트 딥롤러">
+<meta property="og:description" content="척추 전문가가 개발한 인체의 건강을 아름답게 가꾸는 기능성 폼롤러 코어다이어트 딥롤러">
+<meta property="og:image" content="http://www.corediet.co.kr/logo.png">
+<meta property="og:url" content="http://www.corediet.co.kr">
+<link rel="canonical" href="http://www.corediet.co.kr/">
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/favi.ico">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/slick/slick.css"/>

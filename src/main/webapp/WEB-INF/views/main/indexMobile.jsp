@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Core Diet</title>
+<title>코어다이어트 딥롤러</title>
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/favi.ico">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/slick/slick.css"/>
