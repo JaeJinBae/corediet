@@ -187,7 +187,7 @@ $(function(){
 		$(".menu_nav_wrap").slideToggle("fast");
 	});
 	
-	$(".menu_nav_wrap > .menu_nav_ul > li > a:not(#openPopupBtn)").click(function(e){
+	$(".menu_nav_wrap > .menu_nav_ul > li > a:not(#openPopupBtn, #mallLink)").click(function(e){
 		e.preventDefault();
 		var target = $(this).attr("href");
 		$("html,body").animate({scrollTop:$(target).offset().top}, 500);
@@ -228,6 +228,7 @@ $(function(){
 				<li class=""><a href="#section07" class="">CONTACT</a></li>
 				<li class=""><a href="#section12" class="">LIBRARY</a></li>
 				<li class=""><a id="openPopupBtn" href="#none" class="">DEEP ROLLER</a></li>
+				<li><a id="mallLink" href="https://smartstore.naver.com/corediet/products/4548548424">MALL</a></li>
 			</ul>
 		</div><!-- End Navigation -->
 	</div>

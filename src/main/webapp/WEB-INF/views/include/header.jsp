@@ -55,6 +55,7 @@ $(function(){
 			<li><a href="#section07">CONTACT</a></li>
 			<li><a href="#section12">LIBRARY</a></li>
 			<li><a id="openPopupBtn" href="#">DEEP ROLLER</a></li>
+			<li><a id="mallLink" href="https://smartstore.naver.com/corediet/products/4548548424">MALL</a></li>
 		</ul>
 	</div><!-- menuWrap end -->
 </div><!-- headerWrap end -->
